@@ -1,0 +1,46 @@
+# Entry widget
+
+## Style parameters
+
+| | |
+| --- | --- |
+| bordercolor | Sets the color of the border around the entry widget.|
+| fieldbackground | Specifies the background color of the area where users input text.|
+|selectbackground | Defines the background color of selected text within the entry field.|
+|selectforeground | Sets the text color of selected text within the entry field.|
+|selectborderwidth | Specifies the width of the border around selected text within the entry field.|
+|insertwidth | Determines the width of the insertion cursor (blinking line) displayed within the entry field.|
+|insertcolor | Specifies the color of the insertion cursor within the entry field.|
+|foreground |Sets the text color of the content displayed within the entry field. |
+|relief | Defines the appearance of the border surrounding the entry widget, such as flat, raised, or sunken. |
+
+## Style map
+
+| State | Meaning|
+| --- | --- |
+| active | The mouse is currently within the widget.|
+|alternate | Ttk reserved this state for application use.|
+|background | The widget is on a window that is not the foreground |window. The foreground window is a window that is getting user inputs. This state is only relevant to Windows and macOS. |
+|disabled  | The widget won’t respond to any actions.|
+|focus | The widget currently has focus.|
+|invalid | The value of the widget is currently invalid.|
+|pressed | The widget is currently being clicked or pressed e.g. when a Button widget is pressed.|
+|readonly | The readonly widget prevents you from changing its current value e.g., a read-only Entry widget won’t allow you to change its text contents.|
+|selected | The widget is selected e.g. when radio buttons are checked. |
+
+## Example
+
+```python
+style.map('data.TEntry',
+            fieldbackground=[
+                ('focus', '#eee'),
+                ('disabled', 'lightgrey'),
+                ])
+```
+## To force focus
+
+```python
+        entry = ttk.Entry(frame, textvariable=self.text_variable)
+        entry.grid(row=0, column=1)
+        self.root.after(1, lambda: entry.focus_force())
+```

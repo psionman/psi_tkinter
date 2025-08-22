@@ -1,0 +1,18 @@
+# icecream
+
+## Importing
+
+```python
+try:
+    from icecream import ic, install
+    ic.configureOutput(includeContext=True)
+    install()
+except ImportError:  # Graceful fallback if IceCream isn't installed.
+    ic = lambda *a: None if not a else (a[0] if len(a) == 1 else a)
+```
+
+## Install in conda
+
+```bash
+conda install -c conda-forge icecream
+```

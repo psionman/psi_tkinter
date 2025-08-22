@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Directories and Files &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Read and Write Files" href="read_and_write.html" />
+    <link rel="prev" title="Python Snippets" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pypi.html">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../penv.html">pyenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tkinter/index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Directories and Files</a><ul>
+<li><a class="reference internal" href="#get-all-files-in-a-directory">Get all files in a directory</a><ul>
+<li><a class="reference internal" href="#using-pathlib">Using pathlib</a></li>
+<li><a class="reference internal" href="#using-os">Using os</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copy-file">Copy File</a></li>
+<li><a class="reference internal" href="#get-components-of-a-path">Get components of a path</a></li>
+<li><a class="reference internal" href="#get-all-files-recursively-from-a-path">Get all files recursively from a path</a></li>
+<li><a class="reference internal" href="#get-all-sub-directories-recursively-from-a-path">Get all sub-directories recursively from a path</a></li>
+<li><a class="reference internal" href="#get-all-of-the-files-in-a-directory-and-sort-by-date-time">Get all of the files in a directory and sort by date/time</a></li>
+<li><a class="reference internal" href="#get-all-directories-recursively-from-a-path">Get all directories recursively from a path</a></li>
+<li><a class="reference internal" href="#create-all-directories-in-a-path">Create all directories in a path</a></li>
+<li><a class="reference internal" href="#date-and-time-last-updated">Date and time last updated</a></li>
+<li><a class="reference internal" href="#remove-directory-recursively">Remove directory recursively</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="index.html" title="Previous Chapter: Python Snippets"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Python Snippets</span>
+    </a>
+  </li>
+  <li>
+    <a href="read_and_write.html" title="Next Chapter: Read and Write Files"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Read and Write Files &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/snippets/directories_and_files.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Directories and Files</a><ul>
+<li><a class="reference internal" href="#get-all-files-in-a-directory">Get all files in a directory</a><ul>
+<li><a class="reference internal" href="#using-pathlib">Using pathlib</a></li>
+<li><a class="reference internal" href="#using-os">Using os</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copy-file">Copy File</a></li>
+<li><a class="reference internal" href="#get-components-of-a-path">Get components of a path</a></li>
+<li><a class="reference internal" href="#get-all-files-recursively-from-a-path">Get all files recursively from a path</a></li>
+<li><a class="reference internal" href="#get-all-sub-directories-recursively-from-a-path">Get all sub-directories recursively from a path</a></li>
+<li><a class="reference internal" href="#get-all-of-the-files-in-a-directory-and-sort-by-date-time">Get all of the files in a directory and sort by date/time</a></li>
+<li><a class="reference internal" href="#get-all-directories-recursively-from-a-path">Get all directories recursively from a path</a></li>
+<li><a class="reference internal" href="#create-all-directories-in-a-path">Create all directories in a path</a></li>
+<li><a class="reference internal" href="#date-and-time-last-updated">Date and time last updated</a></li>
+<li><a class="reference internal" href="#remove-directory-recursively">Remove directory recursively</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="index.html" title="Previous Chapter: Python Snippets"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Python Snippets</span>
+    </a>
+  </li>
+  <li>
+    <a href="read_and_write.html" title="Next Chapter: Read and Write Files"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Read and Write Files &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="../_sources/snippets/directories_and_files.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="directories-and-files">
+<h1>Directories and Files<a class="headerlink" href="#directories-and-files" title="Link to this heading">¶</a></h1>
+<section id="get-all-files-in-a-directory">
+<h2>Get all files in a directory<a class="headerlink" href="#get-all-files-in-a-directory" title="Link to this heading">¶</a></h2>
+<section id="using-pathlib">
+<h3>Using pathlib<a class="headerlink" href="#using-pathlib" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="k">def</span> <span class="nf">delete_files</span><span class="p">():</span>
+    <span class="n">file_patterns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.so&#39;</span><span class="p">,)</span>
+    <span class="n">search_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">search_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">is_file</span><span class="p">()]</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="n">file_patterns</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="using-os">
+<h3>Using os<a class="headerlink" href="#using-os" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">def</span> <span class="nf">get_file_list</span><span class="p">(</span><span class="n">dir_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the list of files in a directory.&quot;&quot;&quot;</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">dir_name</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+        <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">sorted_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sorted_files</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="copy-file">
+<h2>Copy File<a class="headerlink" href="#copy-file" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-components-of-a-path">
+<h2>Get components of a path<a class="headerlink" href="#get-components-of-a-path" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/projects/bfg/bfg_wag/bfg_web/static/images/favicon.ico&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;file_path&#39;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+<span class="n">directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;os.path.dirname&#39;</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+
+<span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;os.path.basename&#39;</span><span class="p">,</span> <span class="n">base_name</span><span class="p">)</span>
+
+<span class="n">base_name</span><span class="p">,</span> <span class="n">file_extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;os.path.splitext, file_extension&#39;</span><span class="p">,</span> <span class="n">file_extension</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------------&#39;</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;parent: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;name: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;stem: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;suffix: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;parts: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">parts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;root: &#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Outputs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>file_path<span class="w"> </span>/home/jeff/projects/bfg/bfg_wag/bfg_web/static/images/favicon.ico
+os.path.dirname<span class="w"> </span>/home/jeff/projects/bfg/bfg_wag/bfg_web/static/images
+os.path.basename<span class="w"> </span>favicon.ico
+os.path.splitext,<span class="w"> </span>file_extension<span class="w"> </span>.ico
+----------------------------------
+parent:<span class="w">  </span>/home/jeff/projects/bfg/bfg_wag/bfg_web/static/images
+name:<span class="w">  </span>favicon.ico
+stem:<span class="w">  </span>favicon
+suffix:<span class="w">  </span>.ico
+parts:<span class="w">  </span><span class="o">(</span><span class="s1">&#39;/&#39;</span>,<span class="w"> </span><span class="s1">&#39;home&#39;</span>,<span class="w"> </span><span class="s1">&#39;jeff&#39;</span>,<span class="w"> </span><span class="s1">&#39;projects&#39;</span>,<span class="w"> </span><span class="s1">&#39;bfg&#39;</span>,<span class="w"> </span><span class="s1">&#39;bfg_wag&#39;</span>,<span class="w"> </span><span class="s1">&#39;bfg_web&#39;</span>,<span class="w"> </span><span class="s1">&#39;static&#39;</span>,<span class="w"> </span><span class="s1">&#39;images&#39;</span>,<span class="w"> </span><span class="s1">&#39;favicon.ico&#39;</span><span class="o">)</span>
+root:<span class="w">  </span>/
+</pre></div>
+</div>
+</section>
+<section id="get-all-files-recursively-from-a-path">
+<h2>Get all files recursively from a path<a class="headerlink" href="#get-all-files-recursively-from-a-path" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">search_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/projects/bfg/bfg_wag/bfg_web/static&#39;</span>
+<span class="k">for</span> <span class="n">directory_name</span><span class="p">,</span> <span class="n">subdir_list</span><span class="p">,</span> <span class="n">file_list</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">search_dir</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">directory_name</span><span class="p">,</span> <span class="n">file_name</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-sub-directories-recursively-from-a-path">
+<h2>Get all sub-directories recursively from a path<a class="headerlink" href="#get-all-sub-directories-recursively-from-a-path" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">search_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/projects/bfg/bfg_wag/bfg_web/static&#39;</span>
+<span class="k">for</span> <span class="n">directory_name</span><span class="p">,</span> <span class="n">subdir_list</span><span class="p">,</span> <span class="n">file_list</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">search_dir</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">subdir_name</span> <span class="ow">in</span> <span class="n">subdir_list</span><span class="p">:</span>
+        <span class="n">subdir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">directory_name</span><span class="p">,</span> <span class="n">subdir_name</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subdir_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-of-the-files-in-a-directory-and-sort-by-date-time">
+<h2>Get all of the files in a directory and sort by date/time<a class="headerlink" href="#get-all-of-the-files-in-a-directory-and-sort-by-date-time" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">search_dir</span> <span class="o">=</span> <span class="s1">&#39;/data/projects/bfg/bfg_wag/bfg_web/static/css&#39;</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">search_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+
+<span class="n">sorted_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">file_list</span><span class="p">,</span>
+                        <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">search_dir</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
+                        <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-directories-recursively-from-a-path">
+<h2>Get all directories recursively from a path<a class="headerlink" href="#get-all-directories-recursively-from-a-path" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">search_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/projects//bfg/bfg_wag/bfg_web/static&#39;</span>
+    <span class="k">for</span> <span class="n">directory_name</span><span class="p">,</span> <span class="n">subdir_list</span><span class="p">,</span> <span class="n">file_list</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">search_dir</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">directory_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="create-all-directories-in-a-path">
+<h2>Create all directories in a path<a class="headerlink" href="#create-all-directories-in-a-path" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="k">def</span> <span class="nf">create_path_directories</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create all directories in a path.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">parts</span>
+        <span class="n">create_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">create_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">create_path</span><span class="p">,</span> <span class="n">element</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">create_path</span><span class="p">):</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">create_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="date-and-time-last-updated">
+<h2>Date and time last updated<a class="headerlink" href="#date-and-time-last-updated" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">time_stamp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s1">&#39;/home/jeff/projects/bfg_wag&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_stamp</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="remove-directory-recursively">
+<h2>Remove directory recursively<a class="headerlink" href="#remove-directory-recursively" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="n">directory_name</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/projects/bfg_wagamama&#39;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">directory_name</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">directory_name</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

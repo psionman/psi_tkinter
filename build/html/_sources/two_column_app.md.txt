@@ -1,0 +1,83 @@
+# Two Column App
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+PAD = 5
+
+
+def _header_frame(container):
+    frame = ttk.Frame(container)
+    frame.grid(row=0, column=0)
+    header = ttk.Label(frame, text='Header', font=('Arial', 16))
+    header.grid(row=0, column=0, columnspan=2, sticky=tk.EW, padx=PAD)
+
+
+def _main_frame(container):
+    frame = ttk.Frame(container, style='red.TFrame')
+    frame.grid(row=1, column=0, sticky=tk.NSEW)
+
+    rows = tuple(range(3))
+    frame.rowconfigure(rows, weight=1)
+
+    frame.columnconfigure(0, weight=1)
+    frame.columnconfigure(1, weight=5)
+
+    label = ttk.Label(frame, text='label 1')
+    label.grid(row=0, column=0, sticky=tk.E, padx=PAD)
+    entry = ttk.Entry(frame)
+    entry.grid(row=0, column=1, sticky=tk.EW, padx=PAD)
+
+    label = ttk.Label(frame, text='label 2')
+    label.grid(row=1, column=0, sticky=tk.E, padx=PAD)
+    entry = ttk.Entry(frame)
+    entry.grid(row=1, column=1, sticky=tk.EW, padx=PAD)
+
+    label = ttk.Label(frame, text='label 3')
+    label.grid(row=2, column=0, sticky=tk.E, padx=PAD)
+    entry = ttk.Entry(frame)
+    entry.grid(row=2, column=1, sticky=tk.EW, padx=PAD)
+
+
+def _button_frame(container) -> None:
+    """Create button row."""
+    frame = ttk.Frame(container)
+    frame.grid(row=3, column=0, sticky=tk.EW, padx=PAD, pady=PAD)
+
+    frame.columnconfigure(0, weight=1)
+    frame.columnconfigure(1, weight=1)
+
+    process_button = ttk.Button(frame, text='Save')
+    process_button.grid(row=0, column=0, sticky=tk.W)
+
+    quit_button = ttk.Button(frame, text='Quit', command=dismiss)
+    quit_button.grid(row=0, column=1, sticky=tk.E)
+
+
+def dismiss():
+    root.grab_release()
+    root.destroy()
+
+
+root = tk.Tk()
+
+# style = ttk.Style()
+# style.configure('TFrame', background='yellow')
+# style.configure('blue.TFrame', background='blue')
+# style.configure('green.TFrame', background='green')
+# style.configure('red.TFrame', background='red')
+
+root.rowconfigure(0, weight=1)
+root.rowconfigure(1, weight=10)
+root.rowconfigure(2, weight=1)
+
+root.columnconfigure(0, weight=1)
+
+_header_frame(root)
+_main_frame(root)
+_button_frame(root)
+
+root.mainloop()
+
+```

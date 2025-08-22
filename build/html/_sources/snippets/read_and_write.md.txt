@@ -1,0 +1,73 @@
+# Read and Write Files
+
+## Read
+
+Note that *line* might contain the *\n* and/or the *\r* characters. The python *read* commands do NOT strip these out.
+
+1. Entire File
+
+    ```python
+    with open(file_path, 'r') as f_test:
+        text = f_test.read()
+        print(text)
+    ```
+
+1. Convert file to a list of lines:
+
+    ```python
+    with open(file_path, 'r') as f_test:
+        text = f_test.read()
+        text_list = text.split('\n')
+        for line in text_list:
+            print(line)
+    ```
+
+1. Read file as a list
+
+    ```python
+    with open(file_path, 'r') as f_test:
+        text_list = f_test.readlines()
+        print(text)
+    ```
+
+1. Iterate over lines in a file
+
+    ```python
+    with open(file_path, 'r') as f_test:
+        line = f_test.readline()
+        while line != '':
+            print(line)
+            line = f_test.readline()
+    ```
+
+
+1. Read a file in json format
+
+    ```python
+    import json
+
+    with open(json_path, 'r') as f_json:
+        json_object = json.load(f_json)
+    print(json.dumps(json_object, sort_keys=True, indent=4, separators=(',', ': ')))
+    ```
+
+## Write
+
+1. Save a file in json format
+
+    ```python
+    import json
+
+    with open(json_path, 'w') as f_json:
+        json.dump(my_dict, f_json)
+    ```
+
+1. Save a file in json format in human readable form.
+
+    ```python
+    import json
+
+    json_string = json.dumps(my_dict, sort_keys=True, indent=4, separators=(',', ': '))
+    with open(json_path, 'w') as f_json:
+        print(json_string, file=f_json)
+    ```

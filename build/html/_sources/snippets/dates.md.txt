@@ -1,0 +1,155 @@
+# Date and Time
+
+## Relative dates
+
+
+```python
+import datetime
+from dateutil.parser import parse as date_parse
+from dateutil.relativedelta import relativedelta
+
+start = date_parse('25 dec 2020')
+next = start + relativedelta(months=1)
+print(start)
+print(next)
+```
+
+```bash
+2020-12-25 00:00:00
+2021-01-25 00:00:00
+```
+
+## Date formats
+
+```python
+import datetime
+
+event = datetime.datetime.now()
+
+print(event.strftime('%d %b %Y %H:%M:%S'))
+print(event.strftime('%d/%B/%Y'))
+print(event.strftime('%d/%m/%Y'))
+
+print(f'{event:%d %b %Y %H:%M:%S}')
+```
+
+```bash
+26 Jan 2023 14:18:27
+26/January/2023
+26/01/2023
+26 Jan 2023 14:18:27
+```
+
+## Today
+
+```python
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+
+today = datetime.now()
+print(f'Today is: {today}')
+
+today = datetime.today()
+print(f'Today is: {today}')
+```
+
+```bash
+Today is: 2023-01-26 15:29:59.332962
+Today is: 2023-01-26 15:29:59.333411
+```
+
+## Last week
+
+```python
+last_week = today - timedelta(days=7)
+print(f'Last week was: {last_week}')
+```
+```bash
+Last week was: 2023-01-19 15:29:59.333411
+```
+
+## Last month
+
+Note that *dateutil.relativedelta* handles different month lengths
+
+```python
+last_month = today - relativedelta(months=1)
+print(f'Last week was: {last_month} - correct')
+
+last_week = today - timedelta(days=30)
+print(f'Last week was: {last_month} - might be one day out')
+```
+
+```bash
+Last week was: 2022-12-26 15:29:59.333411 - correct
+Last week was: 2022-12-26 15:29:59.333411 - might be one day out
+```
+
+## 5  Years ago
+
+Note that *dateutil.relativedelta* handles different month lengths
+
+```python
+five_years = today - relativedelta(years=5)
+print(f'Five years ago was: {five_years} - correct')
+
+five_years = today - timedelta(days=365*5)
+print(f'Five years ago was: {five_years} - might be one or two days out')
+```
+
+```bash
+Five years ago was: 2018-01-26 15:29:59.333411 - correct
+Five years ago was: 2018-01-27 15:29:59.333411 - might be one or two days out
+```
+
+## Time Stamp
+
+```python
+import datetime
+
+hours_ago = 24
+dt = datetime.datetime.now() - datetime.timedelta(hours=hours_ago)
+time_stamp = int(dt.timestamp())
+print(f'Number of seconds since {dt.strftime("%H:%M:%S")} on 01/01/1970: {time_stamp}')
+
+next_hour = datetime.datetime.fromtimestamp(time_stamp+3600)
+print(f'Time in 1 hour is {next_hour.strftime("%H:%M:%S")}')
+```
+
+```bash
+Number of seconds since 15:36:39 on 01/01/1970: 1674660999
+Time in 1 hour is 16:36:39
+```
+
+## Time Stamp in UCT format
+
+```python
+event = datetime.datetime.utcnow()
+# ISO-8601 formatted date for use un javascript
+js_format = f'{event.strftime("%Y-%m-%dT%H:%M:%SZ")}'
+print(js_format)
+```
+
+```bash
+2023-01-26T15:37:26Z
+```
+
+## Time Elapsed
+
+```python
+from time import process_time
+
+t1_start = process_time()
+# Do something
+t1_stop = process_time()
+print("Elapsed time:", t1_stop - t1_start)
+```
+
+## Parse a string to date
+
+```python
+from dateutil.parser import parse
+
+dt = parse('Mon Feb 15 2010')
+print(dt)
+```

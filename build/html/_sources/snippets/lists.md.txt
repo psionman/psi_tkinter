@@ -1,0 +1,146 @@
+# Lists
+
+## Return a list from a string
+
+```python
+# Return a list from a string
+string = 'a;b;c'
+my_list = string.split(';')
+print(my_list)
+```
+
+## Return a string from a list
+
+```python
+# Return a string from a list
+list = ['a', 'b', 'c']
+string = ';'.join(list)
+print(string)
+```
+
+## Reverse a list in place
+
+*.reverse()* reverses a list in place. It does NOT create a new list
+
+```python
+base = ['a', 'b', 'c']
+
+copy_base = base
+print(f'{base=}')
+base.reverse()
+print(f'{base=}')
+print(f'{copy_base=}')
+print(f'{base.reverse()=}')
+```
+
+```bash
+base=['a', 'b', 'c']
+base=['c', 'b', 'a']
+copy_base=['c', 'b', 'a']
+base.reverse()=None
+```
+
+## Create a copy of a reversed list
+
+*reversed* is a function which returns an iterator on the reversed list
+
+```python
+base = ['a', 'b', 'c']
+
+reversed_base = reversed(base)
+print(f'{type(reversed_base)=}')
+new_base = [item for item i
+```
+
+```bash
+type(reversed_base)=<class 'list_reverseiterator'>
+new_base=['c', 'b', 'a']
+```
+
+## Sort a list in place
+
+*.sort()* sorts a list in place. It does NOT create a new list
+
+```python
+base = ['a', 'c', 'b']
+
+copy_base = base
+print(f'{base=}')
+base.sort()
+print(f'{base=}')
+print(f'{copy_base=}')
+print(f'{base.sort()=}')
+```
+
+```bash
+base=['a', 'c', 'b']
+base=['a', 'b', 'c']
+copy_base=['a', 'b', 'c']
+base.sort()=None
+```
+
+## Create a copy of a sorted list
+
+*sorted* is a function which returns an iterator on the sorted list
+
+
+```python
+base = ['a', 'c', 'b']
+
+print(f'{base=}')
+sorted_base = sorted(base)
+print(f'{type(sorted_base)=}')
+new_base = [item for item in sorted_base]
+print(f'{new_base=}')
+```
+
+```bash
+base=['a', 'c', 'b']
+type(sorted_base)=<class 'list'>
+new_base=['a', 'b', 'c']
+```
+
+# Sort list of objects
+
+```python
+class MyObject:
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
+    def __repr__(self):
+        return str(self.name)
+
+a = MyObject('a', 1)
+b = MyObject('b', 3)
+c = MyObject('c', 2)
+
+my_list = [a, b, c]
+
+sorted_list = sorted(my_list, key=lambda x: x.value)
+print('sorted using sorted:', sorted_list)
+```
+
+```bash
+sorted using sorted: [a, c, b]
+```
+
+
+## Concatenate lists
+
+```python
+list_one = [1, 2, 3]
+list_two = [4, 5, 6]
+print(list_one + list_two)
+```
+
+## Zip two lists
+
+```python
+a = ['a', 'b', 'c']
+b = [1, 2, 3]
+
+# print(list(zip(a, b)))
+
+print(dict(zip(a, b)))
+```

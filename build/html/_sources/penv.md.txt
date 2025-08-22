@@ -1,0 +1,146 @@
+# pyenv
+
+See [tutorial](https://realpython.com/intro-to-pyenv/)
+
+## Install
+
+Use *Add/Remove Software* to install *pyenv* and *pyenv-virtualenv*.
+
+or
+
+```bash
+curl https://pyenv.run | bash
+```
+
+
+## Common commands
+
+### Create a virtualenv
+
+```bash
+pyenv virtualenv <version> <env>
+```
+
+The environment is a link at */home/jeff/.pyenv/versions/<env>* which points to */home/jeff/.pyenv/versions/<version>/envs/<env>*
+
+### Create a virtualenv with system packages
+
+```bash
+pyenv virtualenv --system-site-packages <version> <env>
+```
+
+
+### List virtualenvs
+
+```bash
+pyenv virtualenvs
+```
+
+### List all packages in a virtualenv
+
+```bash
+pip freeze --local
+```
+
+### Enter a virtualenv
+
+```bash
+pyenv activate <env>
+```
+
+### Delete a virtualenv
+
+```bash
+pyenv virtualenv-delete <env>
+```
+
+### List versions
+
+```bash
+pyenv versions
+```
+
+### Change version
+
+```bash
+pyenv shell 3.7.12
+```
+
+creates/updates file *version* in *.pyenv* directory
+
+```bash
+pyenv shell system
+```
+
+Note that
+
+```bash
+pyenv local 3.7.12
+```
+
+creates/updates file *python-version* in the current directory
+
+## Is program running in a virtual env?
+
+```python
+env_path = getattr(sys, "base_prefix", None) or getattr(sys, "real_prefix", None) or sys.prefix
+if env_path == sys.prefix:
+    cprint('You must run this in a virtual environment', ERROR_COLOUR)
+    quit()
+```
+
+## Remove Debug from PIL
+
+In */home/jeff/.virtualenvs/\<env>/lib/python3.10/site-packages/PIL/PngImagePlugin.py*:
+
+comment out all lines starting *logger.debug(*
+
+## Return path to a packages
+
+```python
+import sysconfig
+from pathlib import Path
+
+PACKAGE = 'bfgbidding'
+VIRTUAL_ENV_DIR = sysconfig.get_path('purelib')
+print(f'{Path(VIRTUAL_ENV_DIR, PACKAGE)=}')
+```
+
+## Installation
+
+Install required packages
+
+```bash
+ sudo pacman -S openssl readline sqlite3 xz zlib
+```
+
+Install pyenv-virtualenvwrapper
+
+```bash
+ curl https://pyenv.run | bash
+```
+
+### Contents of .bashrc
+
+```bash
+...
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:${PATH}"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper_lazy
+```
+
+## Install a Python Version
+
+```bash
+pyenv install 3.9.10
+```
+
+If you get a failure warning about ssl or other packages, might have to use
+
+```bash
+LDFLAGS="-L/usr/lib/openssl-1.0" CPPFLAGS="-I/usr/include/openssl-1.0" pyenv install -v 3.4.3
+```

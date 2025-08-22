@@ -1,0 +1,83 @@
+# Poetry - Introduction
+
+## Installation
+
+Install *pipx*
+
+```bash
+sudo pacman -S python-pipx
+pipx ensurepath
+sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+```
+
+Install Poetry
+
+```bash
+pipx install poetry
+```
+
+## New project
+
+```bash
+poetry new <project name>
+```
+
+Creates a new directory with a project; in particular the *pyproject.toml* file
+
+```bash
+[tool.poetry]
+name = "<project name>"
+version = "0.1.0"
+description = ""
+authors = ["Jeff <jeffwatkins2000@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+```
+## Use an environment
+
+```bash
+poetry env use python
+```
+
+## List dependencies
+
+```bash
+poetry show
+```
+
+## Update dependencies
+
+```bash
+poetry update
+```
+
+## Add dependencies from requirements.txt
+
+```bash
+poetry add $(cat requirements.txt)
+```
+
+## Provide authentication
+
+```bash
+poetry config pypi-token.pypi your-api-token
+```
+
+## Build a project
+
+```bash
+poetry build
+```
+
+## Test publish
+
+```bash
+poetry publish --dry-run
+```

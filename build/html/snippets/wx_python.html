@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wx Python snippets &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Miscellaneous Python snippets" href="miscellaneous_snippets.html" />
+    <link rel="prev" title="The Input Class" href="input.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pypi.html">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../penv.html">pyenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tkinter/index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Wx Python snippets</a><ul>
+<li><a class="reference internal" href="#button-panels">Button panels</a></li>
+<li><a class="reference internal" href="#dialog">Dialog</a></li>
+<li><a class="reference internal" href="#radiobox">RadioBox</a></li>
+<li><a class="reference internal" href="#menubar">MenuBar</a></li>
+<li><a class="reference internal" href="#toolbar">Toolbar</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="input.html" title="Previous Chapter: The Input Class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; The Input Class</span>
+    </a>
+  </li>
+  <li>
+    <a href="miscellaneous_snippets.html" title="Next Chapter: Miscellaneous Python snippets"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Miscellaneous... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/snippets/wx_python.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Wx Python snippets</a><ul>
+<li><a class="reference internal" href="#button-panels">Button panels</a></li>
+<li><a class="reference internal" href="#dialog">Dialog</a></li>
+<li><a class="reference internal" href="#radiobox">RadioBox</a></li>
+<li><a class="reference internal" href="#menubar">MenuBar</a></li>
+<li><a class="reference internal" href="#toolbar">Toolbar</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="input.html" title="Previous Chapter: The Input Class"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; The Input Class</span>
+    </a>
+  </li>
+  <li>
+    <a href="miscellaneous_snippets.html" title="Next Chapter: Miscellaneous Python snippets"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Miscellaneous... &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="../_sources/snippets/wx_python.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="wx-python-snippets">
+<h1>Wx Python snippets<a class="headerlink" href="#wx-python-snippets" title="Link to this heading">¶</a></h1>
+<section id="button-panels">
+<h2>Button panels<a class="headerlink" href="#button-panels" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">class</span> <span class="nc">ButtonPanel</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A panel containing main application buttons.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">main_id</span><span class="p">,</span> <span class="n">main_bind</span><span class="p">,</span> <span class="n">cancel_bind</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmd_main</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">main_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cmd_main</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="n">main_bind</span><span class="p">)</span>
+
+        <span class="n">cmd_exit</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">)</span>
+        <span class="n">cmd_exit</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="n">cancel_bind</span><span class="p">)</span>
+
+        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmd_main</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">proportion</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">cmd_exit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In calling class</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">button_panel</span> <span class="o">=</span> <span class="n">ButtonPanel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_OPEN</span><span class="p">,</span>
+                                   <span class="n">parent</span><span class="o">.</span><span class="n">on_main_click</span><span class="p">,</span>
+                                   <span class="n">parent</span><span class="o">.</span><span class="n">on_quit_click</span><span class="p">)</span>
+
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">button_panel</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">EXPAND</span> <span class="o">|</span> <span class="n">wx</span><span class="o">.</span><span class="n">TOP</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="n">BORDER</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="dialog">
+<h2>Dialog<a class="headerlink" href="#dialog" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="n">BORDER</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">class</span> <span class="nc">AddDialog</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Dialog</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A dialog for data entry.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Title</span> <span class="o">=</span> <span class="s1">&#39;Add users&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">panel</span> <span class="o">=</span> <span class="n">AddDialogPanel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetSizerAndFit</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_ok_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">EndModal</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_quit_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle close event.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">EndModal</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_CANCEL</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AddDialogPanel</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Panel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+
+        <span class="n">main_sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">VERTICAL</span><span class="p">)</span>
+        <span class="n">main_sizer</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">sizer</span><span class="p">,</span> <span class="n">flag</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ALL</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="n">BORDER</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">main_sizer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In calling class</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">add_dialog</span> <span class="o">=</span> <span class="n">AddDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">add_dialog</span><span class="o">.</span><span class="n">ShowModal</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_OK</span><span class="p">:</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="radiobox">
+<h2>RadioBox<a class="headerlink" href="#radiobox" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">rb_greetings</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">RadioBox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Greetings&#39;</span><span class="p">,</span>
+                                   <span class="n">choices</span><span class="o">=</span><span class="n">greetings</span><span class="p">(),</span>
+                                   <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">RA_SPECIFY_ROWS</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To retrieve item</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">greetings</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">rb_greetings</span><span class="o">.</span><span class="n">GetSelection</span><span class="p">()]</span>
+</pre></div>
+</div>
+</section>
+<section id="menubar">
+<h2>MenuBar<a class="headerlink" href="#menubar" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+
+<span class="k">class</span> <span class="nc">MenuBar</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">MenuBar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Menu bar for the application.&quot;&quot;&quot;</span>
+    <span class="k">class</span> <span class="nc">FileMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;File menu.&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Create File menu.&quot;&quot;&quot;</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">frame</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span>
+
+            <span class="n">preferences_menu_item</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">MenuItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_PREFERENCES</span><span class="p">)</span>
+            <span class="n">quit_menu_item</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">MenuItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">preferences_menu_item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">quit_menu_item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">on_cmd_preferences_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_PREFERENCES</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">on_quit_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">HelpMenu</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">Menu</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Help menu.&quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">frame</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">frame</span>
+
+            <span class="n">help_menu_item</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">MenuItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_HELP</span><span class="p">)</span>
+            <span class="n">about_menu_item</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">MenuItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wx</span><span class="o">.</span><span class="n">ID_ABOUT</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">help_menu_item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">about_menu_item</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">on_menu_show_help_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_HELP</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_MENU</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">on_menu_about_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_ABOUT</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span>
+
+        <span class="n">file_menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FileMenu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">help_menu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">HelpMenu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">file_menu</span><span class="p">,</span> <span class="s1">&#39;Files&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">help_menu</span><span class="p">,</span> <span class="s1">&#39;Help&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In calling frame</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">SetMenuBar</span><span class="p">(</span><span class="n">MenuBar</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="toolbar">
+<h2>Toolbar<a class="headerlink" href="#toolbar" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MainToolbar</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ToolBar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create tool bar.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MainToolbar</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">new_bmp</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">ArtProvider</span><span class="o">.</span><span class="n">GetBitmap</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ART_NEW</span><span class="p">)</span>
+        <span class="n">preferences_bmp</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">Bitmap</span><span class="p">(</span><span class="s1">&#39;images/preferences.png&#39;</span><span class="p">)</span>
+        <span class="n">quit_bmp</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">ArtProvider</span><span class="o">.</span><span class="n">GetBitmap</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ART_QUIT</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">AddTool</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_NEW</span><span class="p">,</span> <span class="s1">&#39;New&#39;</span><span class="p">,</span> <span class="n">new_bmp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AddTool</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_PREFERENCES</span><span class="p">,</span> <span class="s1">&#39;Preferences&#39;</span><span class="p">,</span> <span class="n">preferences_bmp</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AddTool</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">,</span> <span class="s1">&#39;Quit&#39;</span><span class="p">,</span> <span class="n">quit_bmp</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetToolShortHelp</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_NEW</span><span class="p">,</span> <span class="s1">&#39;New ...&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetToolShortHelp</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_PREFERENCES</span><span class="p">,</span> <span class="s1">&#39;Preferences ...&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetToolShortHelp</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">,</span> <span class="s1">&#39;Quit&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TOOL</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">on_cmd_preferences_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_PREFERENCES</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_TOOL</span><span class="p">,</span> <span class="n">parent</span><span class="o">.</span><span class="n">on_quit_click</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="o">.</span><span class="n">ID_EXIT</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Realize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In calling frame</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">ToolBar</span> <span class="o">=</span> <span class="n">MainToolbar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

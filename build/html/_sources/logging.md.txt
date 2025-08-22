@@ -1,0 +1,144 @@
+# Logging
+
+Based on this [tutorial](https://realpython.com/python-logging/#the-logging-module)
+
+## Basic use
+```python
+import logging
+
+logging.warning('This is a warning message')
+```
+
+## Levels
+* DEBUG
+* INFO
+* WARNING
+* ERROR
+* CRITICAL
+
+By default, WARNING is the lowest that is used.
+
+## Configuration
+```python
+basicConfig(**kwargs)
+```
+* level: The root logger will be set to the specified severity level.
+* filename: This specifies the file.
+* filemode: If filename is given, the file is opened in this mode. The default is a, which means append.
+* format: This is the format of the log message.
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+```python
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+```
+```python
+logging.basicConfig(format='%(process)d-%(levelname)s-%(message)s')
+```
+```python
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO, datefmt='%d-%b-%y %H:%M:%S')
+```
+
+## Variable data
+```python
+logging.error(f'{name} raised an error')
+```
+
+## Creating a logger
+This is recommended in all but the simplest cases
+
+* Logger: This is the class whose objects will be used in the application code directly to call the functions.
+
+* LogRecord: Loggers automatically create LogRecord objects that have all the information related to the event being logged, like the name of the logger, the function, the line number, the message, and more.
+
+* Handler: Handlers send the LogRecord to the required output destination, like the console or a file. Handler is a base for subclasses like StreamHandler, FileHandler, SMTPHandler, HTTPHandler, and more. These subclasses send the logging outputs to corresponding destinations, like sys.stdout or a disk file.
+
+* Formatter: This is where you specify the format of the output by specifying a string format that lists out the attributes that the output should contain.
+
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+logger.warning('This is a warning')
+```
+Unlike the root logger, a custom logger can’t be configured using basicConfig(). You have to configure it using Handlers and Formatters
+
+### Handlers
+```python
+# logging_example.py
+
+import logging
+
+# Create a custom logger
+logger = logging.getLogger(__name__)
+logger.propagate = False
+logging.basicConfig(level=logging.DEBUG)
+
+# Create handlers
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler('file.log')
+c_handler.setLevel(logging.WARNING)
+f_handler.setLevel(logging.ERROR)
+
+# Create formatters and add it to handlers
+c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+
+# Add handlers to the logger
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+```
+This module can be imported into any other module to handle the logging
+
+```python
+from ..logger import logger  # here logger.py is in the parent directory
+```
+```python
+logger.warning('no air left')
+```
+
+(Configuration files can be used to define the handler.)
+## A *log* function
+```python
+
+def log(frame, obj):
+    """Create log message and return the object."""
+    path = Path(frame[0][1])
+    module = path.stem
+    line = frame[0][2]
+    message_text = f'{obj} <{module}> {line}'
+    logger.info(message_text)
+    return obj
+```
+
+To use it in your application
+```python
+log(inspect.stack(), f'Card played by {board.current_player}: {card_name}')
+```
+
+## Django
+
+In system.py,
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+}
+```
+
+
+## Remove Debug from PIL
+
+In */home/jeff/.virtualenvs/\<env>/lib/python3.10/site-packages/PIL/PngImagePlugin.py* comment out all lines starting *logger.debug(*

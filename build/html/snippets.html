@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Snippets &#8212; TKinter Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6d345cce" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Functions" href="functions.html" />
+    <link rel="prev" title="Treeview" href="treeview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          TKinter Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="general.html">Tkinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frames.html">Screens and Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menus.html">Menus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="panels.html">Panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treeview.html">Treeview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dialogs.html">Dialogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styles_and_text.html">Styles and text</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Snippets</a><ul>
+<li><a class="reference internal" href="#clear-a-frame">Clear a frame</a></li>
+<li><a class="reference internal" href="#call-a-modal-frame">Call a modal frame</a></li>
+<li><a class="reference internal" href="#disable-frame">Disable frame</a></li>
+<li><a class="reference internal" href="#pass-parameter-to-a-bound-event">Pass parameter to a bound event</a></li>
+<li><a class="reference internal" href="#set-listbox-selection">Set Listbox selection</a></li>
+<li><a class="reference internal" href="#enable-buttons">Enable buttons</a></li>
+<li><a class="reference internal" href="#widget-size">Widget size</a></li>
+<li><a class="reference internal" href="#centre-an-element">Centre an element</a></li>
+<li><a class="reference internal" href="#label-font">Label font</a></li>
+<li><a class="reference internal" href="#styles">Styles</a></li>
+<li><a class="reference internal" href="#global-font">Global font</a></li>
+<li><a class="reference internal" href="#wait-cursor">Wait cursor</a></li>
+<li><a class="reference internal" href="#update-idle-tasks">Update idle tasks</a></li>
+<li><a class="reference internal" href="#directory-selector">Directory selector</a></li>
+<li><a class="reference internal" href="#file-picker">File picker</a></li>
+<li><a class="reference internal" href="#frame-got-focus">Frame got focus</a></li>
+<li><a class="reference internal" href="#drag-a-frame">Drag a frame</a></li>
+<li><a class="reference internal" href="#style-maps">Style maps</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="treeview.html" title="Previous Chapter: Treeview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Treeview</span>
+    </a>
+  </li>
+  <li>
+    <a href="functions.html" title="Next Chapter: Functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Functions &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/snippets.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Snippets</a><ul>
+<li><a class="reference internal" href="#clear-a-frame">Clear a frame</a></li>
+<li><a class="reference internal" href="#call-a-modal-frame">Call a modal frame</a></li>
+<li><a class="reference internal" href="#disable-frame">Disable frame</a></li>
+<li><a class="reference internal" href="#pass-parameter-to-a-bound-event">Pass parameter to a bound event</a></li>
+<li><a class="reference internal" href="#set-listbox-selection">Set Listbox selection</a></li>
+<li><a class="reference internal" href="#enable-buttons">Enable buttons</a></li>
+<li><a class="reference internal" href="#widget-size">Widget size</a></li>
+<li><a class="reference internal" href="#centre-an-element">Centre an element</a></li>
+<li><a class="reference internal" href="#label-font">Label font</a></li>
+<li><a class="reference internal" href="#styles">Styles</a></li>
+<li><a class="reference internal" href="#global-font">Global font</a></li>
+<li><a class="reference internal" href="#wait-cursor">Wait cursor</a></li>
+<li><a class="reference internal" href="#update-idle-tasks">Update idle tasks</a></li>
+<li><a class="reference internal" href="#directory-selector">Directory selector</a></li>
+<li><a class="reference internal" href="#file-picker">File picker</a></li>
+<li><a class="reference internal" href="#frame-got-focus">Frame got focus</a></li>
+<li><a class="reference internal" href="#drag-a-frame">Drag a frame</a></li>
+<li><a class="reference internal" href="#style-maps">Style maps</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="treeview.html" title="Previous Chapter: Treeview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Treeview</span>
+    </a>
+  </li>
+  <li>
+    <a href="functions.html" title="Next Chapter: Functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Functions &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="_sources/snippets.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="snippets">
+<h1>Snippets<a class="headerlink" href="#snippets" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="#clear-a-frame">Clear a frame</a> <a class="reference external" href="#call-a-modal-frame">Call a modal frame</a> <a class="reference external" href="#frame-got-focus">Frame got focus</a> <a class="reference external" href="#disable-frame">Disable a frame</a></p>
+<p><a class="reference external" href="#pass-parameter-to-a-bound-event">Pass parameter to a bound event</a></p>
+<p><a class="reference external" href="#set-listbox-selection">Set Listbox selection</a> <a class="reference external" href="#enable-buttons">Enable buttons</a> <a class="reference external" href="#label-font">Label font</a> <a class="reference external" href="#global-font">Global font</a></p>
+<p><a class="reference external" href="#widget-size">Widget size</a></p>
+<p><a class="reference external" href="#centre-an-element">Centre an element</a></p>
+<p><a class="reference external" href="#wait-cursor">Wait cursor</a> <a class="reference external" href="#update-idle-tasks">Update idle tasks</a></p>
+<p><a class="reference external" href="#style-maps">Style maps</a></p>
+<section id="clear-a-frame">
+<h2>Clear a frame<a class="headerlink" href="#clear-a-frame" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">thumbnails</span><span class="o">.</span><span class="n">winfo_children</span><span class="p">():</span>
+            <span class="n">widget</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="call-a-modal-frame">
+<h2>Call a modal frame<a class="headerlink" href="#call-a-modal-frame" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">dlg</span> <span class="o">=</span> <span class="n">xxxFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">wait_window</span><span class="p">(</span><span class="n">dlg</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="disable-frame">
+<h2>Disable frame<a class="headerlink" href="#disable-frame" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">xxx_frame</span><span class="o">.</span><span class="n">winfo_children</span><span class="p">():</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;disable&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pass-parameter-to-a-bound-event">
+<h2>Pass parameter to a bound event<a class="headerlink" href="#pass-parameter-to-a-bound-event" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">button</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Button-1&gt;&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">event</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="n">save_button</span><span class="p">:</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">_enable_button</span><span class="p">(</span><span class="n">button</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="set-listbox-selection">
+<h2>Set Listbox selection<a class="headerlink" href="#set-listbox-selection" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">listbox</span><span class="o">.</span><span class="n">curselection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listbox</span><span class="o">.</span><span class="n">select_clear</span><span class="p">(</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nb">list</span><span class="o">&gt;.</span><span class="n">index</span><span class="p">(</span><span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listbox</span><span class="o">.</span><span class="n">select_set</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listbox</span><span class="o">.</span><span class="n">event_generate</span><span class="p">(</span><span class="s2">&quot;&lt;&lt;ListboxSelect&gt;&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="enable-buttons">
+<h2>Enable buttons<a class="headerlink" href="#enable-buttons" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">enable</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
+            <span class="n">enable</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">enable_buttons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buttons</span><span class="p">,</span> <span class="n">enable</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="widget-size">
+<h2>Widget size<a class="headerlink" href="#widget-size" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">())</span>
+<span class="n">ic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="centre-an-element">
+<h2>Centre an element<a class="headerlink" href="#centre-an-element" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">label</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="label-font">
+<h2>Label font<a class="headerlink" href="#label-font" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">header</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="styles">
+<h2>Styles<a class="headerlink" href="#styles" title="Link to this heading">¶</a></h2>
+<p>NB use with ttk widgets</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">styles</span><span class="p">():</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">()</span>
+    <span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;red.TLabel&quot;</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;blue.TFrame&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;red.TFrame&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;yellow.TFrame&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">label</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;red.TLabel&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="global-font">
+<h2>Global font<a class="headerlink" href="#global-font" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="wait-cursor">
+<h2>Wait cursor<a class="headerlink" href="#wait-cursor" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">WaitCursor</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="k">with</span> <span class="n">WaitCursor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">):</span>
+            <span class="o">&lt;</span><span class="n">some</span> <span class="n">process</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="update-idle-tasks">
+<h2>Update idle tasks<a class="headerlink" href="#update-idle-tasks" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">update_idletasks</span><span class="p">()</span> <span class="c1"># Refresh UI without full redraw</span>
+</pre></div>
+</div>
+</section>
+<section id="directory-selector">
+<h2>Directory selector<a class="headerlink" href="#directory-selector" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">directory</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span>
+            <span class="n">initialdir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+            <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">directory</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">directory</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">directory</span>
+</pre></div>
+</div>
+</section>
+<section id="file-picker">
+<h2>File picker<a class="headerlink" href="#file-picker" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="o">...</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Membership file&#39;</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">PAD</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">PAD</span><span class="p">)</span>
+
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">member_file</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">EW</span><span class="p">)</span>
+
+        <span class="n">button</span> <span class="o">=</span> <span class="n">IconButton</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">OPEN</span><span class="p">,</span> <span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_member_file</span><span class="p">)</span>
+        <span class="n">button</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">PAD</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">_get_member_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">member_file</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span>
+            <span class="n">initialdir</span><span class="o">=</span><span class="n">DOWNLOADS_DIR</span><span class="p">,</span>
+            <span class="n">initialfile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">member_file</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+            <span class="n">filetypes</span><span class="o">=</span><span class="n">CSV_FILE_TYPES</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">member_file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">member_file</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">member_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="frame-got-focus">
+<h2>Frame got focus<a class="headerlink" href="#frame-got-focus" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;FocusIn&gt;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_got_focus</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="drag-a-frame">
+<h2>Drag a frame<a class="headerlink" href="#drag-a-frame" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Button-1&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_click_on_window</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;B1-Motion&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_drag_window</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_drag_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_x_pos</span> <span class="o">+</span> <span class="n">root</span><span class="o">.</span><span class="n">winfo_pointerx</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_y_pos</span> <span class="o">+</span> <span class="n">root</span><span class="o">.</span><span class="n">winfo_pointery</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;+</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">+</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_click_on_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_x_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">winfo_rootx</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">window_y_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">winfo_rooty</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">winfo_pointerx</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">winfo_pointery</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="style-maps">
+<h2>Style maps<a class="headerlink" href="#style-maps" title="Link to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://docs.python.org/3/library/tkinter.ttk.html">documentation</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+            <span class="s1">&#39;green.TCheckbutton&#39;</span><span class="p">,</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="s2">&quot;green.TCheckbutton&quot;</span><span class="p">,</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;pressed&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)],</span>
+            <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;pressed&#39;</span><span class="p">,</span> <span class="s1">&#39;!disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">)]</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2025, Jeff Watkins. Version: 0.0.144.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+# Styles and text
+
+## Styles
+
+```python
+
+    style = ttk.Style()
+    style.configure('red.Label', foreground='red')
+    style.configure('green.Label', foreground='green')
+    style.configure('blue.Label', foreground='blue')
+    style.configure('yellow.Label', foreground='yellow')
+    style.configure('grey.Label', foreground='grey')
+    style.configure('orange.Label', foreground='orange')
+
+    style.configure('orange.TEntry', fieldbackground='orange')
+    style.configure('pale-coral.TEntry', fieldbackground='#ffcfa0')
+    style.configure('pale-umber.TEntry', fieldbackground='#ffebcc')
+
+    style.map('data.TEntry',
+              fieldbackground=[
+                  ('focus', '#eee'),
+                  ('disabled', 'lightgrey'),
+                  ('invalid', 'pink'),
+                  ])
+
+    style.configure('red.TFrame', background='red')
+    style.configure('green.TFrame', background='green')
+    style.configure('blue.TFrame', background='blue')
+    style.configure('yellow.TFrame', background='yellow')
+    style.configure('grey.TFrame', background='grey ')
+    style.map('Treeview',
+              foreground=fixed_map(style, 'foreground'),
+              background=fixed_map(style, 'background'))
+```
+
+
+## Basic text strings
+
+```python
+
+"""Text strings for <application>."""
+
+OK = 'OK'
+EXIT = 'Exit'
+QUIT = 'Quit'
+CLOSE = 'Close'
+COPY = 'Copy'
+EVENT = 'Event'
+SAVE = 'Save'
+NEW = 'New'
+EDIT = 'Edit'
+DELETE = 'Delete'
+ACCEPT = 'Accept'
+DELETE_PROMPT = 'Are you sure you wish to delete this record?'
+SELECT = 'Select'
+CONFIG = 'Preferences'
+ELLIPSIS = ' ...'
+```

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Treeview &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Entry widget" href="entry.html" />
+    <link rel="prev" title="Snippets" href="snippets.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../snippets/index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pypi.html">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../penv.html">pyenv</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Treeview</a><ul>
+<li><a class="reference internal" href="#create">Create</a></li>
+<li><a class="reference internal" href="#select-an-item-on-item-clicked">Select an item on item_clicked</a></li>
+<li><a class="reference internal" href="#get-data-from-selected-item">Get data from selected item</a></li>
+<li><a class="reference internal" href="#clear-treeview">Clear Treeview</a></li>
+<li><a class="reference internal" href="#sort-treeview">Sort Treeview</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="snippets.html" title="Previous Chapter: Snippets"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Snippets</span>
+    </a>
+  </li>
+  <li>
+    <a href="entry.html" title="Next Chapter: Entry widget"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Entry widget &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/tkinter/treeview.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Treeview</a><ul>
+<li><a class="reference internal" href="#create">Create</a></li>
+<li><a class="reference internal" href="#select-an-item-on-item-clicked">Select an item on item_clicked</a></li>
+<li><a class="reference internal" href="#get-data-from-selected-item">Get data from selected item</a></li>
+<li><a class="reference internal" href="#clear-treeview">Clear Treeview</a></li>
+<li><a class="reference internal" href="#sort-treeview">Sort Treeview</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="snippets.html" title="Previous Chapter: Snippets"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Snippets</span>
+    </a>
+  </li>
+  <li>
+    <a href="entry.html" title="Next Chapter: Entry widget"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Entry widget &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="../_sources/tkinter/treeview.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="treeview">
+<h1>Treeview<a class="headerlink" href="#treeview" title="Link to this heading">¶</a></h1>
+<section id="create">
+<h2>Create<a class="headerlink" href="#create" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="o">...</span>
+    <span class="n">WINE_COLUMNS</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;supplier&#39;</span><span class="p">,</span> <span class="s1">&#39;Supplier&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;Code&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;notes&#39;</span><span class="p">,</span> <span class="s1">&#39;Notes&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">selectmode</span><span class="o">=</span><span class="s1">&#39;browse&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">tree</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NSEW</span><span class="p">)</span>
+    <span class="n">tree</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;&lt;TreeviewSelect&gt;&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_clicked</span><span class="p">)</span>
+
+    <span class="n">col_list</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">col</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">WINE_COLUMNS</span><span class="p">])</span>
+    <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_list</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">WINE_COLUMNS</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">col_key</span><span class="p">,</span> <span class="n">col_text</span><span class="p">,</span> <span class="n">col_width</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="n">col_key</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">col_text</span><span class="p">,</span>
+                        <span class="n">command</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="o">=</span><span class="n">col_key</span><span class="p">:</span>
+                        <span class="n">sort_treeview</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">col_key</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">col_width</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+
+    <span class="c1"># Right justify column</span>
+    <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+    <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">)</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="select-an-item-on-item-clicked">
+<h2>Select an item on item_clicked<a class="headerlink" href="#select-an-item-on-item-clicked" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">tree</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Button-3&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_show_context_menu</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">_show_context_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">selected_item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">identify_row</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">selection_set</span><span class="p">(</span><span class="n">selected_item</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">context_menu</span><span class="o">.</span><span class="n">tk_popup</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x_root</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y_root</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-data-from-selected-item">
+<h2>Get data from selected item<a class="headerlink" href="#get-data-from-selected-item" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">item</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selected_item</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="clear-treeview">
+<h2>Clear Treeview<a class="headerlink" href="#clear-treeview" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="sort-treeview">
+<h2>Sort Treeview<a class="headerlink" href="#sort-treeview" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sort_treeview</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">,</span> <span class="n">col</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">reverse</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">children</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">col</span><span class="p">),</span> <span class="n">child</span><span class="p">)</span> <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">get_children</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">children</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">children</span><span class="p">):</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+    <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span>
+        <span class="n">col</span><span class="p">,</span>
+        <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">sort_treeview</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="ow">not</span> <span class="n">reverse</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

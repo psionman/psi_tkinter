@@ -1,0 +1,3 @@
+# Tkinter
+
+If you get abnormal fonts, check pyenv is set up correctly

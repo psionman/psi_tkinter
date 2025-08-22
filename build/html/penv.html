@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyenv &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="TKinter" href="tkinter/index.html" />
+    <link rel="prev" title="PyPi" href="pypi.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="snippets/index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypi.html">PyPi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter/index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">pyenv</a><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#common-commands">Common commands</a><ul>
+<li><a class="reference internal" href="#create-a-virtualenv">Create a virtualenv</a></li>
+<li><a class="reference internal" href="#create-a-virtualenv-with-system-packages">Create a virtualenv with system packages</a></li>
+<li><a class="reference internal" href="#list-virtualenvs">List virtualenvs</a></li>
+<li><a class="reference internal" href="#list-all-packages-in-a-virtualenv">List all packages in a virtualenv</a></li>
+<li><a class="reference internal" href="#enter-a-virtualenv">Enter a virtualenv</a></li>
+<li><a class="reference internal" href="#delete-a-virtualenv">Delete a virtualenv</a></li>
+<li><a class="reference internal" href="#list-versions">List versions</a></li>
+<li><a class="reference internal" href="#change-version">Change version</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#is-program-running-in-a-virtual-env">Is program running in a virtual env?</a></li>
+<li><a class="reference internal" href="#remove-debug-from-pil">Remove Debug from PIL</a></li>
+<li><a class="reference internal" href="#return-path-to-a-packages">Return path to a packages</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#contents-of-bashrc">Contents of .bashrc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-a-python-version">Install a Python Version</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="pypi.html" title="Previous Chapter: PyPi"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; PyPi</span>
+    </a>
+  </li>
+  <li>
+    <a href="tkinter/index.html" title="Next Chapter: TKinter"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">TKinter &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/penv.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">pyenv</a><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#common-commands">Common commands</a><ul>
+<li><a class="reference internal" href="#create-a-virtualenv">Create a virtualenv</a></li>
+<li><a class="reference internal" href="#create-a-virtualenv-with-system-packages">Create a virtualenv with system packages</a></li>
+<li><a class="reference internal" href="#list-virtualenvs">List virtualenvs</a></li>
+<li><a class="reference internal" href="#list-all-packages-in-a-virtualenv">List all packages in a virtualenv</a></li>
+<li><a class="reference internal" href="#enter-a-virtualenv">Enter a virtualenv</a></li>
+<li><a class="reference internal" href="#delete-a-virtualenv">Delete a virtualenv</a></li>
+<li><a class="reference internal" href="#list-versions">List versions</a></li>
+<li><a class="reference internal" href="#change-version">Change version</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#is-program-running-in-a-virtual-env">Is program running in a virtual env?</a></li>
+<li><a class="reference internal" href="#remove-debug-from-pil">Remove Debug from PIL</a></li>
+<li><a class="reference internal" href="#return-path-to-a-packages">Return path to a packages</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#contents-of-bashrc">Contents of .bashrc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-a-python-version">Install a Python Version</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="pypi.html" title="Previous Chapter: PyPi"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; PyPi</span>
+    </a>
+  </li>
+  <li>
+    <a href="tkinter/index.html" title="Next Chapter: TKinter"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">TKinter &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="_sources/penv.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="pyenv">
+<h1>pyenv<a class="headerlink" href="#pyenv" title="Link to this heading">¶</a></h1>
+<p>See <a class="reference external" href="https://realpython.com/intro-to-pyenv/">tutorial</a></p>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<p>Use <em>Add/Remove Software</em> to install <em>pyenv</em> and <em>pyenv-virtualenv</em>.</p>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>https://pyenv.run<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</pre></div>
+</div>
+</section>
+<section id="common-commands">
+<h2>Common commands<a class="headerlink" href="#common-commands" title="Link to this heading">¶</a></h2>
+<section id="create-a-virtualenv">
+<h3>Create a virtualenv<a class="headerlink" href="#create-a-virtualenv" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>virtualenv<span class="w"> </span>&lt;version&gt;<span class="w"> </span>&lt;env&gt;
+</pre></div>
+</div>
+<p>The environment is a link at <em>/home/jeff/.pyenv/versions/<env></em> which points to <em>/home/jeff/.pyenv/versions/<version>/envs/<env></em></p>
+</section>
+<section id="create-a-virtualenv-with-system-packages">
+<h3>Create a virtualenv with system packages<a class="headerlink" href="#create-a-virtualenv-with-system-packages" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>virtualenv<span class="w"> </span>--system-site-packages<span class="w"> </span>&lt;version&gt;<span class="w"> </span>&lt;env&gt;
+</pre></div>
+</div>
+</section>
+<section id="list-virtualenvs">
+<h3>List virtualenvs<a class="headerlink" href="#list-virtualenvs" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>virtualenvs
+</pre></div>
+</div>
+</section>
+<section id="list-all-packages-in-a-virtualenv">
+<h3>List all packages in a virtualenv<a class="headerlink" href="#list-all-packages-in-a-virtualenv" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>freeze<span class="w"> </span>--local
+</pre></div>
+</div>
+</section>
+<section id="enter-a-virtualenv">
+<h3>Enter a virtualenv<a class="headerlink" href="#enter-a-virtualenv" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>activate<span class="w"> </span>&lt;env&gt;
+</pre></div>
+</div>
+</section>
+<section id="delete-a-virtualenv">
+<h3>Delete a virtualenv<a class="headerlink" href="#delete-a-virtualenv" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>virtualenv-delete<span class="w"> </span>&lt;env&gt;
+</pre></div>
+</div>
+</section>
+<section id="list-versions">
+<h3>List versions<a class="headerlink" href="#list-versions" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>versions
+</pre></div>
+</div>
+</section>
+<section id="change-version">
+<h3>Change version<a class="headerlink" href="#change-version" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>shell<span class="w"> </span><span class="m">3</span>.7.12
+</pre></div>
+</div>
+<p>creates/updates file <em>version</em> in <em>.pyenv</em> directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>shell<span class="w"> </span>system
+</pre></div>
+</div>
+<p>Note that</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.7.12
+</pre></div>
+</div>
+<p>creates/updates file <em>python-version</em> in the current directory</p>
+</section>
+</section>
+<section id="is-program-running-in-a-virtual-env">
+<h2>Is program running in a virtual env?<a class="headerlink" href="#is-program-running-in-a-virtual-env" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env_path</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s2">&quot;base_prefix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s2">&quot;real_prefix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">prefix</span>
+<span class="k">if</span> <span class="n">env_path</span> <span class="o">==</span> <span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">:</span>
+    <span class="n">cprint</span><span class="p">(</span><span class="s1">&#39;You must run this in a virtual environment&#39;</span><span class="p">,</span> <span class="n">ERROR_COLOUR</span><span class="p">)</span>
+    <span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="remove-debug-from-pil">
+<h2>Remove Debug from PIL<a class="headerlink" href="#remove-debug-from-pil" title="Link to this heading">¶</a></h2>
+<p>In <em>/home/jeff/.virtualenvs/&lt;env&gt;/lib/python3.10/site-packages/PIL/PngImagePlugin.py</em>:</p>
+<p>comment out all lines starting <em>logger.debug(</em></p>
+</section>
+<section id="return-path-to-a-packages">
+<h2>Return path to a packages<a class="headerlink" href="#return-path-to-a-packages" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sysconfig</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">PACKAGE</span> <span class="o">=</span> <span class="s1">&#39;bfgbidding&#39;</span>
+<span class="n">VIRTUAL_ENV_DIR</span> <span class="o">=</span> <span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;purelib&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">VIRTUAL_ENV_DIR</span><span class="p">,</span><span class="w"> </span><span class="n">PACKAGE</span><span class="p">)</span><span class="si">=}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>Install required packages</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>openssl<span class="w"> </span>readline<span class="w"> </span>sqlite3<span class="w"> </span>xz<span class="w"> </span>zlib
+</pre></div>
+</div>
+<p>Install pyenv-virtualenvwrapper</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>curl<span class="w"> </span>https://pyenv.run<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</pre></div>
+</div>
+<section id="contents-of-bashrc">
+<h3>Contents of .bashrc<a class="headerlink" href="#contents-of-bashrc" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims:</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV</span><span class="o">=</span><span class="s2">&quot;true&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pyenv<span class="w"> </span>init<span class="w"> </span>-<span class="k">)</span><span class="s2">&quot;</span>
+pyenv<span class="w"> </span>virtualenvwrapper_lazy
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install-a-python-version">
+<h2>Install a Python Version<a class="headerlink" href="#install-a-python-version" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.9.10
+</pre></div>
+</div>
+<p>If you get a failure warning about ssl or other packages, might have to use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-L/usr/lib/openssl-1.0&quot;</span><span class="w"> </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I/usr/include/openssl-1.0&quot;</span><span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span><span class="m">3</span>.4.3
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

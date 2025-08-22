@@ -1,0 +1,110 @@
+# Snippets
+
+## Widget size
+
+```python
+ic(self.frame.winfo_width())
+ic(self.frame.winfo_height())
+```
+
+## Centre an element
+```python
+    frame = ttk.Frame(container)
+    frame.rowconfigure(0, weight=1)
+    frame.columnconfigure(0, weight=1)
+
+    label = ttk.Label(frame, text='abc')
+    label.grid(row=0, column=0)
+```
+
+## Label font
+
+```python
+    header = ttk.Label(frame, text=text, font=('Arial', 16))
+```
+
+## Styles
+
+NB use with ttk widgets
+
+```python
+def styles():
+    style = ttk.Style()
+    style.configure("red.TLabel", foreground="red")
+    style.configure('blue.TFrame', background='blue')
+    style.configure('red.TFrame', background='red')
+    style.configure('yellow.TFrame', background='yellow')
+```
+
+```python
+    label = ttk.Label(frame, text='xyz', style='red.TLabel',
+```
+
+## Global font
+
+```python
+    style.configure('.', font=('Helvetica', 12))
+```
+
+
+
+## Directory selector
+
+```python
+    ...
+
+        # Data directory
+        label = ttk.Label(frame, text="Data directory:")
+        label.grid(row=0, column=0, sticky=tk.E)
+
+        data_directory = ttk.Entry(frame,
+                                   textvariable=self.parent.data_directory)
+        data_directory.grid(row=0, column=1, columnspan=1, sticky=tk.EW,
+                            padx=PAD, pady=PAD)
+
+        select = ttk.Button(frame, text=f'{SELECT_TEXT} ...',
+                            command=self._get_data_directory)
+        select.grid(row=0, column=3, sticky=tk.W, padx=PAD)
+    ...
+
+    def _get_data_directory(self):
+        """Set data directory."""
+        data_directory = filedialog.askdirectory(
+            initialdir=Path(self.parent.data_directory.get()).parent,
+            parent=self,
+        )
+        if data_directory:
+            self.parent.data_directory.set(data_directory)
+            self.parent.config.data_directory = data_directory
+```
+
+## File picker
+
+```python
+    ...
+        label = ttk.Label(frame, text="Email template:")
+        label.grid(row=0, column=0, sticky=tk.E)
+
+        email_template = ttk.Entry(frame,
+                                   textvariable=self.parent.email_template)
+        email_template.grid(row=0, column=1, columnspan=3, sticky=tk.EW,
+                            padx=PAD, pady=PAD)
+
+        select = ttk.Button(frame, text='Select ...',
+                            command=self._get_email_template)
+        select.grid(row=0, column=4, sticky=tk.W, padx=PAD)
+    ...
+
+
+    def _get_email_template(self):
+        """Set email template path."""
+        email_template = filedialog.askopenfilename(
+            initialdir=Path(self.parent.email_template.get()).parent,
+            initialfile=self.parent.email_template.get(),
+            filetypes=TXT_FILE_TYPES,
+            parent=self,
+        )
+        if email_template:
+            self.parent.email_template.set(email_template)
+            self.parent.config.email_template = email_template
+```

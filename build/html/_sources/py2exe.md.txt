@@ -1,0 +1,9 @@
+# Using py2exe
+
+See this [tutorial](https://py2exe.org/index.cgi/Tutorial)
+
+Installation
+
+```bash
+pip install py2exe
+```

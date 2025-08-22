@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Entry widget &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Two Column App" href="two_column_app.html" />
+    <link rel="prev" title="Treeview" href="treeview.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../snippets/index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pypi.html">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../penv.html">pyenv</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Entry widget</a><ul>
+<li><a class="reference internal" href="#style-parameters">Style parameters</a></li>
+<li><a class="reference internal" href="#style-map">Style map</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#to-force-focus">To force focus</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="treeview.html" title="Previous Chapter: Treeview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Treeview</span>
+    </a>
+  </li>
+  <li>
+    <a href="two_column_app.html" title="Next Chapter: Two Column App"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Two Column App &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/tkinter/entry.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Entry widget</a><ul>
+<li><a class="reference internal" href="#style-parameters">Style parameters</a></li>
+<li><a class="reference internal" href="#style-map">Style map</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#to-force-focus">To force focus</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="treeview.html" title="Previous Chapter: Treeview"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Treeview</span>
+    </a>
+  </li>
+  <li>
+    <a href="two_column_app.html" title="Next Chapter: Two Column App"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Two Column App &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="../_sources/tkinter/entry.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="entry-widget">
+<h1>Entry widget<a class="headerlink" href="#entry-widget" title="Link to this heading">¶</a></h1>
+<section id="style-parameters">
+<h2>Style parameters<a class="headerlink" href="#style-parameters" title="Link to this heading">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bordercolor</td>
+<td>Sets the color of the border around the entry widget.</td>
+</tr>
+<tr>
+<td>fieldbackground</td>
+<td>Specifies the background color of the area where users input text.</td>
+</tr>
+<tr>
+<td>selectbackground</td>
+<td>Defines the background color of selected text within the entry field.</td>
+</tr>
+<tr>
+<td>selectforeground</td>
+<td>Sets the text color of selected text within the entry field.</td>
+</tr>
+<tr>
+<td>selectborderwidth</td>
+<td>Specifies the width of the border around selected text within the entry field.</td>
+</tr>
+<tr>
+<td>insertwidth</td>
+<td>Determines the width of the insertion cursor (blinking line) displayed within the entry field.</td>
+</tr>
+<tr>
+<td>insertcolor</td>
+<td>Specifies the color of the insertion cursor within the entry field.</td>
+</tr>
+<tr>
+<td>foreground</td>
+<td>Sets the text color of the content displayed within the entry field.</td>
+</tr>
+<tr>
+<td>relief</td>
+<td>Defines the appearance of the border surrounding the entry widget, such as flat, raised, or sunken.</td>
+</tr>
+</tbody>
+</table></section>
+<section id="style-map">
+<h2>Style map<a class="headerlink" href="#style-map" title="Link to this heading">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>State</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>active</td>
+<td>The mouse is currently within the widget.</td>
+</tr>
+<tr>
+<td>alternate</td>
+<td>Ttk reserved this state for application use.</td>
+</tr>
+<tr>
+<td>background</td>
+<td>The widget is on a window that is not the foreground</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>The widget won’t respond to any actions.</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>The widget currently has focus.</td>
+</tr>
+<tr>
+<td>invalid</td>
+<td>The value of the widget is currently invalid.</td>
+</tr>
+<tr>
+<td>pressed</td>
+<td>The widget is currently being clicked or pressed e.g. when a Button widget is pressed.</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>The readonly widget prevents you from changing its current value e.g., a read-only Entry widget won’t allow you to change its text contents.</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>The widget is selected e.g. when radio buttons are checked.</td>
+</tr>
+</tbody>
+</table></section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">style</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;data.TEntry&#39;</span><span class="p">,</span>
+            <span class="n">fieldbackground</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">(</span><span class="s1">&#39;focus&#39;</span><span class="p">,</span> <span class="s1">&#39;#eee&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">),</span>
+                <span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="to-force-focus">
+<h2>To force focus<a class="headerlink" href="#to-force-focus" title="Link to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>        <span class="n">entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">text_variable</span><span class="p">)</span>
+        <span class="n">entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">focus_force</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

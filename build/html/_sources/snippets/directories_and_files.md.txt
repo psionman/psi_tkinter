@@ -1,0 +1,174 @@
+# Directories and Files
+
+## Get all files in a directory
+
+### Using pathlib
+
+```python
+from pathlib import Path
+
+def delete_files():
+    file_patterns = ('.so',)
+    search_dir = Path('.')
+    file_list = [name for name in search_dir.iterdir() if name.is_file()]
+    for file in file_list:
+        if file.suffix in file_patterns:
+            file.unlink()
+```
+
+### Using os
+
+```python
+import os
+
+def get_file_list(dir_name):
+    """Return the list of files in a directory."""
+    file_list = os.listdir(dir_name)
+    files = []
+    for file_name in file_list:
+        files.append(file_name)
+    sorted_files = sorted(files)
+    return sorted_files
+```
+
+## Copy File
+
+```python
+shutil.copyfile(src, dst)
+```
+
+## Get components of a path
+
+```python
+import os
+from pathlib import Path
+
+file_path = '/home/jeff/projects/bfg/bfg_wag/bfg_web/static/images/favicon.ico'
+print('file_path', file_path)
+
+directory = os.path.dirname(file_path)
+print('os.path.dirname', directory)
+
+base_name = os.path.basename(file_path)
+print('os.path.basename', base_name)
+
+base_name, file_extension = os.path.splitext(file_path)
+print('os.path.splitext, file_extension', file_extension)
+
+print('----------------------------------')
+
+path = Path(file_path)
+
+print('parent: ', path.parent)
+print('name: ', path.name)
+print('stem: ', path.stem)
+print('suffix: ', path.suffix)
+print('parts: ', path.parts)
+print('root: ', path.root)
+```
+
+Outputs:
+
+```bash
+file_path /home/jeff/projects/bfg/bfg_wag/bfg_web/static/images/favicon.ico
+os.path.dirname /home/jeff/projects/bfg/bfg_wag/bfg_web/static/images
+os.path.basename favicon.ico
+os.path.splitext, file_extension .ico
+----------------------------------
+parent:  /home/jeff/projects/bfg/bfg_wag/bfg_web/static/images
+name:  favicon.ico
+stem:  favicon
+suffix:  .ico
+parts:  ('/', 'home', 'jeff', 'projects', 'bfg', 'bfg_wag', 'bfg_web', 'static', 'images', 'favicon.ico')
+root:  /
+```
+
+## Get all files recursively from a path
+
+```python
+import os
+
+search_dir = '/home/jeff/projects/bfg/bfg_wag/bfg_web/static'
+for directory_name, subdir_list, file_list in os.walk(search_dir):
+    for file_name in file_list:
+        file_path = os.sep.join([directory_name, file_name])
+        print(f'{file_path})
+```
+
+## Get all sub-directories recursively from a path
+
+```python
+import os
+
+search_dir = '/home/jeff/projects/bfg/bfg_wag/bfg_web/static'
+for directory_name, subdir_list, file_list in os.walk(search_dir):
+    for subdir_name in subdir_list:
+        subdir_path = os.sep.join([directory_name, subdir_name])
+        print('\t%s' % subdir_path)
+```
+
+## Get all of the files in a directory and sort by date/time
+
+```python
+import os
+
+search_dir = '/data/projects/bfg/bfg_wag/bfg_web/static/css'
+file_list = os.listdir(search_dir)
+print(file_list)
+
+sorted_files = sorted( file_list,
+                        key = lambda x: os.path.getmtime(os.path.join(search_dir, x))
+                        )
+
+print(sorted_files)
+```
+
+## Get all directories recursively from a path
+
+```python
+    import os
+
+    search_dir = '/home/jeff/projects//bfg/bfg_wag/bfg_web/static'
+    for directory_name, subdir_list, file_list in os.walk(search_dir):
+            print('\t%s' % directory_name)
+```
+
+## Create all directories in a path
+
+```python
+import os
+from pathlib import Path
+
+
+def create_path_directories(file_path):
+    """Create all directories in a path."""
+    if not os.path.isdir(file_path):
+        path = Path(file_path)
+        parts = path.parts
+        create_path = ''
+        for element in parts[1:]:
+            create_path = os.sep.join([create_path, element])
+            if not os.path.isdir(create_path):
+                os.mkdir(create_path)
+```
+
+## Date and time last updated
+
+```python
+import os
+
+time_stamp = os.path.getmtime('/home/jeff/projects/bfg_wag')
+print(time_stamp)
+```
+
+## Remove directory recursively
+
+```python
+import shutil
+
+directory_name = '/home/jeff/projects/bfg_wagamama'
+try:
+    shutil.rmtree(directory_name)
+except OSError as e:
+    print(f'Error: {directory_name} : {e.strerror}')
+```

@@ -1,0 +1,62 @@
+# String formatting and parsing
+
+## Date formats
+
+```python
+import datetime
+
+event = datetime.datetime.now()
+
+print(event.strftime('%d %b %Y %H:%M:%S'))
+print(event.strftime('%d/%B/%Y'))
+print(event.strftime('%d/%m/%Y'))
+```
+
+## Format a float with 2 decimal places
+
+```python
+value = 3.1412
+
+print(f'{value:.2f}')
+```
+
+## Format an integer with leading zeros
+
+```python
+value = 23
+
+print(f'{value:04d}')
+```
+
+## Format an integer with leading zeros
+
+```python
+value = 23
+
+print(f'{value:04d}')
+```
+
+## Left justify a string in a field
+
+```python
+text = 'The quick brown fox'
+
+print('         1         2         3         4')
+print('1234567890123456789012345678901234567890')
+print(f'{text:<30}'+'aaa')
+```
+
+## Pad out a string with trailing .'s
+
+```python
+output = f'{customer:.<25} {balance:.2f}'
+```
+
+## Parse a string to date
+
+```python
+from dateutil.parser import parse
+
+dt = parse('Mon Feb 15 2010')
+print(dt)
+```

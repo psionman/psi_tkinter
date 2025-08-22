@@ -1,0 +1,211 @@
+# Config with ConfigParser and JSON
+
+## Using ConfigParser
+
+This config has two sections:
+
+* directories
+    - input dir
+* dates
+    - start_date
+
+With defaults (see *self['DEFAULT']*)
+
+*config.py*
+
+```python
+"""Handle the config data for the application."""
+import os
+import sys
+import pathlib
+from datetime import datetime
+from configparser import ConfigParser
+
+CONFIG_DIR = 'updated_files'
+CONFIG_FILE_NAME = 'config.ini'
+DATE_FORMAT = '%Y%m%d'
+
+
+class Config(ConfigParser):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.path = ''
+        self._check_config_exists()
+
+        # Defaults
+        self['DEFAULT'] = {
+            'start_date': datetime.today().strftime(DATE_FORMAT),
+            'input_dir': '',
+        }
+
+        #Sections
+        self['directories'] = {
+            'input_dir': '',
+        }
+
+        self['dates'] = {
+            'start_date': '',
+        }
+
+        # read and populate
+        self.read(self.path)
+
+        start_date = self['dates']['start_date']
+        if start_date:
+            self.start_date = datetime.strptime(start_date, DATE_FORMAT)
+        else:
+            self.start_date = datetime.today().date()
+
+        self.input_dir = self['directories']['input_dir']
+
+
+    def save(self):
+        """Save to config file."""
+        self['dates']['start_date'] = self.start_date.strftime(DATE_FORMAT)
+        self['directories']['input_dir'] = self.input_dir
+        with open(self.path, 'w') as f_config:
+            self.write(f_config)
+
+    def _check_config_exists(self):
+        """If config exists, if not create,"""
+        config_dir = self._get_config_dir()
+        self.path = os.path.join(config_dir, CONFIG_DIR, CONFIG_FILE_NAME)
+        print(self.path)
+        try:
+            with open(self.path, 'r') as f_config:
+                f_config.read()
+        except FileNotFoundError:
+            self._create_config_file()
+
+    def _create_config_file(self):
+        """Create the path to the config file."""
+        path = pathlib.Path(self.path)
+        built_path = ''
+        for part in path.parts[:-1]:
+            built_path = os.path.join(built_path, part)
+            if not os.path.isdir(built_path):
+                os.mkdir(built_path)
+
+    @staticmethod
+    def _get_config_dir() -> pathlib.Path:
+        """
+        Returns a parent directory path
+        where persistent application data can be stored.
+
+        # linux: ~/.local/share
+        # macOS: ~/Library/Application Support
+        # windows: C:/Users/<USER>/AppData/Roaming
+        """
+
+        home = pathlib.Path.home()
+
+        if sys.platform == 'linux':
+            return os.path.join(home, '.local', 'share')
+        elif sys.platform == 'win32':
+            return os.path.join(home, 'AppData', 'Roaming')
+        elif sys.platform == 'darwin':
+            return os.path.join(home, 'darwin')
+```
+
+### Usage
+
+```python
+from config import Config
+
+config = Config()
+
+print('Initial')
+print(config.start_date)
+print(config.input_dir)
+
+config.input_dir = 'path to dir'
+config.save()
+
+print('Updated')
+print(config.start_date)
+print(config.input_dir)
+```
+
+## Using JSON
+
+```
+{
+  "bfg": {
+    "host_name": "bidforgame.com",
+    "username": "bidforga",
+    "port": 88,
+    "private_key_file": ".ssh/bfg_id",
+    "local_dir": "projects/bfg_rest",
+    "remote_dir": "bfg/bfg_wag"
+  }
+}
+```
+
+
+```python
+# config.py
+
+import json
+from pathlib import Path
+from termcolor import cprint
+
+HOME = Path.home()
+config_dir = '.config'
+config_file_name = 'config.json'
+
+CONFIG_DIR = Path('.config', 'bfg-ce') # Application specific
+CONFIG_FILE = 'config.json'
+CONFIG_KEY = 'bfg'
+
+ERROR_COLOUR ='red'
+
+class Config():
+    def __init__(self) -> None:
+        self.path = Path(f'{HOME}', CONFIG_DIR, CONFIG_FILE)
+        config = self._get_config()
+        # Application specific elements
+        self.last_role = config['last_role']
+        self.last_comment = config['last_comment']
+
+    def _get_config(self):
+        try:
+            with open(self.path, 'r') as f_config:
+                return json.load(f_config)
+        except FileNotFoundError:
+            cprint(f'Missing configuration file: {self.path}', ERROR_COLOUR)
+            quit()
+        except json.decoder.JSONDecodeError:
+            cprint(f'Invalid json in file: {self.path}', ERROR_COLOUR)
+            quit()
+        except KeyError:
+            cprint(f'Invalid config key {CONFIG_KEY}', ERROR_COLOUR)
+            quit()
+
+    def save(self):
+        json_dict = {
+            # Application specific elements
+            'last_role': self.last_role,
+            'last_comment': self.last_comment,
+            }
+        try:
+            with open(self.path, 'w') as f_config:
+                return json.dump(json_dict, f_config)
+        except FileNotFoundError:
+            cprint(f'Missing configuration file: {self.path}', ERROR_COLOUR)
+            quit()
+
+config = Config()
+```
+
+### Usage
+
+```python
+from config import config
+
+    role = config.last_role
+    ...
+    config.last_role = params.role
+    config.save()
+
+```

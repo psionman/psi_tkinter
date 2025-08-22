@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SSH and SFTP &#8212; Python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Python</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="snippets/index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypi.html">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="penv.html">pyenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter/index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">SSH and SFTP</a><ul>
+<li><a class="reference internal" href="#ssh">SSH</a></li>
+<li><a class="reference internal" href="#sftp">SFTP</a></li>
+<li><a class="reference internal" href="#generate-public-private-key-pair">Generate Public/Private key pair</a></li>
+<li><a class="reference internal" href="#python-and-paramiko">Python and paramiko</a><ul>
+<li><a class="reference internal" href="#with-password">With Password</a></li>
+<li><a class="reference internal" href="#with-private-key-file">With Private key file</a></li>
+<li><a class="reference internal" href="#to-download-a-file">To Download a file</a></li>
+<li><a class="reference internal" href="#to-upload-a-file">To Upload a file</a></li>
+<li><a class="reference internal" href="#get-file-stats">Get File Stats</a></li>
+<li><a class="reference internal" href="#get-a-list-of-files-in-a-directory-on-remote-server">Get a list of files in a directory on remote server</a></li>
+<li><a class="reference internal" href="#get-a-list-of-directories-on-remote-server">Get a list of directories on remote server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ssh.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">SSH and SFTP</a><ul>
+<li><a class="reference internal" href="#ssh">SSH</a></li>
+<li><a class="reference internal" href="#sftp">SFTP</a></li>
+<li><a class="reference internal" href="#generate-public-private-key-pair">Generate Public/Private key pair</a></li>
+<li><a class="reference internal" href="#python-and-paramiko">Python and paramiko</a><ul>
+<li><a class="reference internal" href="#with-password">With Password</a></li>
+<li><a class="reference internal" href="#with-private-key-file">With Private key file</a></li>
+<li><a class="reference internal" href="#to-download-a-file">To Download a file</a></li>
+<li><a class="reference internal" href="#to-upload-a-file">To Upload a file</a></li>
+<li><a class="reference internal" href="#get-file-stats">Get File Stats</a></li>
+<li><a class="reference internal" href="#get-a-list-of-files-in-a-directory-on-remote-server">Get a list of files in a directory on remote server</a></li>
+<li><a class="reference internal" href="#get-a-list-of-directories-on-remote-server">Get a list of directories on remote server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="sourcelink">
+  <a href="_sources/ssh.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="ssh-and-sftp">
+<h1>SSH and SFTP<a class="headerlink" href="#ssh-and-sftp" title="Link to this heading">¶</a></h1>
+<section id="ssh">
+<h2>SSH<a class="headerlink" href="#ssh" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>bidforga@bidforgame.com<span class="w"> </span>-p<span class="w"> </span><span class="m">88</span>
+</pre></div>
+</div>
+<p>If it returns an error like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:+/deqXB7uy0fhH9x7UuAA/zPyVtTFeEk4iZJfnld5kQ.
+Please contact your system administrator.
+Add correct host key in /home/jeff/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /home/jeff/.ssh/known_hosts:2
+Host key for [bidforgame.com]:88 has changed and you have requested strict checking.
+Host key verification failed.
+Connection closed.
+</pre></div>
+</div>
+<p>Look for line number in <em>…/.ssh/known_hosts</em> and delete it</p>
+<p>run the command again</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>bidforga@bidforgame.com<span class="w"> </span>-p<span class="w"> </span><span class="m">88</span>
+</pre></div>
+</div>
+<p>answer <em>yes</em> and provide the cPanel password</p>
+</section>
+<section id="sftp">
+<h2>SFTP<a class="headerlink" href="#sftp" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sftp<span class="w"> </span>-oPort<span class="o">=</span><span class="m">88</span><span class="w"> </span>bidforga@bidforgame.com
+</pre></div>
+</div>
+</section>
+<section id="generate-public-private-key-pair">
+<h2>Generate Public/Private key pair<a class="headerlink" href="#generate-public-private-key-pair" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
+</pre></div>
+</div>
+<p>Save key in <em>~/.ssh</em>, e.g. <em>~/.ssh/bfg_id</em></p>
+<p>In CPanel got to <em>SSH Access</em>, import and enable the <em>Public</em> key.</p>
+</section>
+<section id="python-and-paramiko">
+<h2>Python and paramiko<a class="headerlink" href="#python-and-paramiko" title="Link to this heading">¶</a></h2>
+<section id="with-password">
+<h3>With Password<a class="headerlink" href="#with-password" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paramiko</span>
+
+<span class="n">HOST_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforgame.com&#39;</span>
+<span class="n">USER_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforga&#39;</span>
+<span class="n">PASSWORD</span> <span class="o">=</span> <span class="s1">&#39;&lt;password&gt;&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">88</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">load_system_host_keys</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="n">HOST_NAME</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">USER_NAME</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">PASSWORD</span><span class="p">)</span>
+
+<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;ls -l&quot;</span>
+<span class="n">stdin</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">exec_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="with-private-key-file">
+<h3>With Private key file<a class="headerlink" href="#with-private-key-file" title="Link to this heading">¶</a></h3>
+<p>(No need to specify a password.)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paramiko</span>
+
+<span class="n">HOST_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforgame.com&#39;</span>
+<span class="n">USER_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforga&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">PRIVATE_KEY_FILE</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/.ssh/bfg_id&#39;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">load_system_host_keys</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="n">HOST_NAME</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">USER_NAME</span><span class="p">,</span> <span class="n">key_filename</span><span class="o">=</span><span class="n">PRIVATE_KEY_FILE</span><span class="p">)</span>
+
+<span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;ls -l&quot;</span>
+<span class="n">stdin</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">exec_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="to-download-a-file">
+<h3>To Download a file<a class="headerlink" href="#to-download-a-file" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">REMOTE_FILE_PATH</span> <span class="o">=</span> <span class="s1">&#39;bfg/bfg_wag/common/application.py&#39;</span>
+<span class="n">LOCAL_FILE_PATH</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/Documents/application.py&#39;</span>
+
+<span class="n">sftp_client</span><span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">REMOTE_FILE_PATH</span><span class="p">,</span> <span class="n">LOCAL_FILE_PATH</span><span class="p">)</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="to-upload-a-file">
+<h3>To Upload a file<a class="headerlink" href="#to-upload-a-file" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">REMOTE_FILE_PATH</span> <span class="o">=</span> <span class="s1">&#39;bfg/bfg_wag/common/application.py&#39;</span>
+<span class="n">LOCAL_FILE_PATH</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/Documents/application.py&#39;</span>
+
+<span class="n">sftp_client</span><span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">LOCAL_FILE_PATH</span><span class="p">,</span> <span class="n">REMOTE_FILE_PATH</span><span class="p">)</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="get-file-stats">
+<h3>Get File Stats<a class="headerlink" href="#get-file-stats" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">REMOTE_FILE_PATH</span> <span class="o">=</span> <span class="s1">&#39;bfg/bfg_wag/common/application.py&#39;</span>
+
+<span class="n">sftp_client</span><span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+<span class="n">file_stats</span> <span class="o">=</span> <span class="n">sftp_client</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">REMOTE_FILE_PATH</span><span class="p">)</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-a-list-of-files-in-a-directory-on-remote-server">
+<h3>Get a list of files in a directory on remote server<a class="headerlink" href="#get-a-list-of-files-in-a-directory-on-remote-server" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paramiko</span>
+
+<span class="n">HOME</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span>
+<span class="n">HOST_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforgame.com&#39;</span>
+<span class="n">USER_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforga&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">PRIVATE_KEY_FILE</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/.ssh/bfg_id&#39;</span>
+
+<span class="n">REMOTE_DIR</span> <span class="o">=</span> <span class="s1">&#39;bfg/bfg_wag/common&#39;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">load_system_host_keys</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="n">HOST_NAME</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">USER_NAME</span><span class="p">,</span> <span class="n">key_filename</span><span class="o">=</span><span class="n">PRIVATE_KEY_FILE</span><span class="p">)</span>
+
+<span class="n">sftp_client</span><span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+<span class="n">item_list</span> <span class="o">=</span> <span class="n">sftp_client</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">REMOTE_DIR</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="get-a-list-of-directories-on-remote-server">
+<h3>Get a list of directories on remote server<a class="headerlink" href="#get-a-list-of-directories-on-remote-server" title="Link to this heading">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">paramiko</span>
+<span class="kn">from</span> <span class="nn">stat</span> <span class="kn">import</span> <span class="n">S_ISDIR</span>
+
+<span class="n">HOME</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span>
+<span class="n">HOST_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforgame.com&#39;</span>
+<span class="n">USER_NAME</span> <span class="o">=</span> <span class="s1">&#39;bidforga&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">88</span>
+<span class="n">PRIVATE_KEY_FILE</span> <span class="o">=</span> <span class="s1">&#39;/home/jeff/.ssh/bfg_id&#39;</span>
+
+<span class="n">REMOTE_DIR</span> <span class="o">=</span> <span class="s1">&#39;bfg/bfg_wag&#39;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">load_system_host_keys</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="o">=</span><span class="n">HOST_NAME</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">USER_NAME</span><span class="p">,</span> <span class="n">key_filename</span><span class="o">=</span><span class="n">PRIVATE_KEY_FILE</span><span class="p">)</span>
+
+<span class="n">sftp_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">open_sftp</span><span class="p">()</span>
+<span class="n">item_list</span> <span class="o">=</span> <span class="n">sftp_client</span><span class="o">.</span><span class="n">listdir_attr</span><span class="p">(</span><span class="n">REMOTE_DIR</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">st_mode</span>
+    <span class="k">if</span> <span class="n">S_ISDIR</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="n">sftp_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

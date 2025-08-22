@@ -1,0 +1,173 @@
+# Wx Python snippets
+
+## Button panels
+
+```python
+
+class ButtonPanel(wx.Panel):
+    """A panel containing main application buttons."""
+    def __init__(self, parent, main_id, main_bind, cancel_bind, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.cmd_main = wx.Button(self, main_id)
+        self.cmd_main.Bind(wx.EVT_BUTTON, main_bind)
+
+        cmd_exit = wx.Button(self, wx.ID_EXIT)
+        cmd_exit.Bind(wx.EVT_BUTTON, cancel_bind)
+
+        sizer = wx.BoxSizer(wx.HORIZONTAL)
+        sizer.Add(self.cmd_main)
+        sizer.Add((0, 0), proportion=1)
+        sizer.Add(cmd_exit)
+        self.SetSizer(sizer)
+```
+
+In calling class
+```python
+
+        button_panel = ButtonPanel(self, wx.ID_OPEN,
+                                   parent.on_main_click,
+                                   parent.on_quit_click)
+
+        sizer.Add(button_panel, flag=wx.EXPAND | wx.TOP, border=BORDER)
+```
+
+## Dialog
+
+```python
+import wx
+
+BORDER = 5
+
+class AddDialog(wx.Dialog):
+    """A dialog for data entry."""
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+        self.Title = 'Add users'
+
+        self.panel = AddDialogPanel(self)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(self.panel)
+        self.SetSizerAndFit(sizer)
+
+    def on_ok_click(self, event):
+        self.EndModal(wx.ID_OK)
+
+    def on_quit_click(self, event):
+        """Handle close event."""
+        self.EndModal(wx.ID_CANCEL)
+
+
+class AddDialogPanel(wx.Panel):
+    def __init__(self, parent, *args, **kwargs):
+        super().__init__(parent, *args, **kwargs)
+
+        self.parent = parent
+
+        sizer = wx.BoxSizer(wx.VERTICAL)
+
+        main_sizer = wx.BoxSizer(wx.VERTICAL)
+        main_sizer.Add(sizer, flag=wx.ALL, border=BORDER)
+        self.SetSizer(main_sizer)
+```
+
+In calling class
+```python
+        add_dialog = AddDialog(self)
+        value = add_dialog.ShowModal()
+        if value == wx.ID_OK:
+            pass
+```
+
+## RadioBox
+
+```python
+        rb_greetings = wx.RadioBox(self, label='Greetings',
+                                   choices=greetings(),
+                                   style=wx.RA_SPECIFY_ROWS)
+```
+To retrieve item
+```python
+greeting = self.greetings[self.rb_greetings.GetSelection()]
+```
+
+## MenuBar
+
+```python
+
+
+class MenuBar(wx.MenuBar):
+    """Menu bar for the application."""
+    class FileMenu(wx.Menu):
+        """File menu."""
+        def __init__(self, parent, *args, **kwargs):
+            """Create File menu."""
+            super().__init__(*args, **kwargs)
+            frame = parent.frame
+
+            preferences_menu_item = wx.MenuItem(self, wx.ID_PREFERENCES)
+            quit_menu_item = wx.MenuItem(self, wx.ID_EXIT)
+
+            self.Append(preferences_menu_item)
+            self.Append(quit_menu_item)
+            self.Bind(wx.EVT_MENU, frame.on_cmd_preferences_click, id=wx.ID_PREFERENCES)
+            self.Bind(wx.EVT_MENU, frame.on_quit_click, id=wx.ID_EXIT)
+
+    class HelpMenu(wx.Menu):
+        """Help menu."""
+        def __init__(self, parent, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            frame = parent.frame
+
+            help_menu_item = wx.MenuItem(self, wx.ID_HELP)
+            about_menu_item = wx.MenuItem(self, wx.ID_ABOUT)
+            self.Append(help_menu_item)
+            self.Append(about_menu_item)
+
+            self.Bind(wx.EVT_MENU, frame.on_menu_show_help_click, id=wx.ID_HELP)
+            self.Bind(wx.EVT_MENU, frame.on_menu_about_click, id=wx.ID_ABOUT)
+
+    def __init__(self, frame, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.frame = frame
+
+        file_menu = self.FileMenu(self)
+        help_menu = self.HelpMenu(self)
+
+        self.Append(file_menu, 'Files')
+        self.Append(help_menu, 'Help')
+```
+In calling frame
+
+```python
+        self.SetMenuBar(MenuBar(self))
+```
+
+## Toolbar
+```python
+class MainToolbar(wx.ToolBar):
+    """Create tool bar."""
+    def __init__(self, parent, *args, **kwargs):
+        super(MainToolbar, self).__init__(parent, *args, **kwargs)
+
+        new_bmp = wx.ArtProvider.GetBitmap(wx.ART_NEW)
+        preferences_bmp = wx.Bitmap('images/preferences.png')
+        quit_bmp = wx.ArtProvider.GetBitmap(wx.ART_QUIT)
+
+        self.AddTool(wx.ID_NEW, 'New', new_bmp)
+        self.AddTool(wx.ID_PREFERENCES, 'Preferences', preferences_bmp)
+        self.AddTool(wx.ID_EXIT, 'Quit', quit_bmp)
+
+        self.SetToolShortHelp(wx.ID_NEW, 'New ...')
+        self.SetToolShortHelp(wx.ID_PREFERENCES, 'Preferences ...')
+        self.SetToolShortHelp(wx.ID_EXIT, 'Quit')
+
+        self.Bind(wx.EVT_TOOL, parent.on_cmd_preferences_click, id=wx.ID_PREFERENCES)
+        self.Bind(wx.EVT_TOOL, parent.on_quit_click, id=wx.ID_EXIT)
+
+        self.Realize()
+```
+In calling frame
+
+```python
+        self.ToolBar = MainToolbar(self)
+```

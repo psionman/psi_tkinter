@@ -1,0 +1,47 @@
+# Zipapp
+
+## Directory Structure
+
+```
+.
+└── build
+│   └── my_app.py
+├── dist
+│   └── my_app.pyz
+└── src
+    ├── my_app.py
+```
+
+## Install dependencies
+
+```bash
+python -m pip install termcolor --target build
+```
+
+```bash
+ python -m pip install -r requirements.txt --target build
+```
+
+## Build
+
+Copy *src* modules to the *build* directory.
+
+```bash
+python -m zipapp build --main main:main --output dist/main.pyz
+```
+
+## Application Structure
+
+```python
+from termcolor import cprint
+import colorama
+
+colorama.init()
+
+def main():
+    print('hello world')
+    cprint('hola mundo', 'red')
+
+if __name__ == '__main__':
+    main()
+```

@@ -1,0 +1,138 @@
+# Basic Widgets
+
+## Root
+
+```python
+import tkinter as tk
+from tkinter import ttk
+    ...
+    # Create the app's main window and loop
+    root = tk.Tk()
+    root.geometry(GEOMETRY)
+    root.title(f'{APP_TITLE} - {__version__}')
+    root.iconphoto(False, tk.PhotoImage(file=ICON_FILE))
+    root.protocol("WM_DELETE_WINDOW", self.quit_application)
+    root.columnconfigure(0, weight=1)
+    root.rowconfigure(0, weight=1)
+
+    mainframe = self._create_main_frame(root)
+    mainframe.grid(column=0, row=0)
+
+    root.mainloop()
+```
+
+## Frame
+
+```python
+    def _create_main_frame(self, container):
+        frame = ttk.Frame(container, padding=BORDER)
+
+        frame.columnconfigure(0, weight=1)
+        frame.columnconfigure(1, weight=3)
+        frame.rowconfigure(7, weight=1)
+
+        self._create_gui_items(frame)
+        for widget in frame.winfo_children():
+            widget.grid(padx=BORDER, pady=BORDER)
+        return frame
+```
+
+## Button
+
+```python
+    def _create_buttons(self, frame: ttk.Frame, coords: namedtuple) -> None:
+        # Buttons
+        cmd_OK = ttk.Button(frame, text="OK")
+        cmd_OK.bind("<Button-1>", self._do_calculation)
+        cmd_OK.grid(row=coords.row, column=0, sticky=tk.SW)
+
+        cmd_cancel = ttk.Button(frame, text="Cancel")
+        cmd_cancel.bind("<Button-1>", self.quit_application)
+        cmd_cancel.grid(row=coords.row, column=99, sticky=tk.SE)
+```
+
+## Radio button
+
+```python
+    button = ttk.Radiobutton(
+        frame,
+        text='Mouse',
+        value=DATA_ENTRY['mouse'],
+        variable=self.parent.data_entry
+    )
+```
+
+
+## ComboBox
+
+```python
+    def _create_period_months(self, frame: ttk.Frame, coords: namedtuple) -> None:
+        # Period months
+        lbl_payment_period = ttk.Label(frame, text='Payments for (months)')
+        lbl_payment_period.grid(row=coords.row, column=0, sticky=tk.E)
+        cmb_period_months = ttk.Combobox(frame, width=5, values=self.allowed_periods,
+                                         textvariable=self.payment_months)
+        cmb_period_months.bind('<<ComboboxSelected>>', self._change_cmb_period_months)
+        cmb_period_months.grid(row=coords.row, column=1, sticky=tk.W)
+```
+
+## Spin control
+
+```python
+    def _create_period_start_month(self, frame: ttk.Frame, coords: namedtuple) -> None:
+        # Payment months
+        lbl_period_start = ttk.Label(frame, text='Period start')
+        lbl_period_start.grid(row=coords.row, column=0, sticky=tk.E)
+        spn_period_start = ttk.Spinbox(frame, width=5, from_=1, to=12,
+                                       increment=1, textvariable=self.period_start_month,
+                                       command=self._update_start_month)
+        spn_period_start.grid(row=coords.row, column=1, sticky=tk.W)
+        lbl_start_months = ttk.Label(frame, textvariable=self.period_start_months)
+        lbl_start_months.grid(row=coords.row+1, column=1, sticky=tk.W)
+```
+
+## Date Picker
+
+```python
+from tkcalendar import DateEntry
+...
+    def _create_start_date(self, frame: tk.Frame, coords: namedtuple) -> None):
+        # Period months
+        start_month = int(self.period_start_month.get())
+        payment_months = int(self.payment_months.get())
+        start_date = get_start_date(start_month, payment_months)
+        lbl_start_date = ttk.Label(frame, text='Start date')
+        lbl_start_date.grid(row=coords.row, column=0, sticky=tk.E)
+        date_picker = DateEntry(frame, date_pattern="dd/mm/yyyy",
+                                year=start_date.year,
+                                month=start_date.month,
+                                day=start_date.day)
+        date_picker.grid(row=coords.row, column=1, sticky=tk.E)
+```
+
+## Menu
+
+```python
+    def _create_menu(self, container):
+        menubar = tk.Menu(container)
+        container['menu'] = menubar
+        menu_file = tk.Menu(menubar)
+        menubar.add_cascade(menu=menu_file, label='File')
+
+        menu_file.add_command(label='Defaults...', command=self.show_defaults)
+        menu_file.add_command(label='Quit', command=self.quit_application)
+```
+
+## Modal window
+
+```python
+    def show_defaults(self):
+        container = self.root
+        dlg = tk.Toplevel(container)
+        ttk.Button(dlg, text="Done", command=tk.dismiss).grid()
+        dlg.protocol("WM_DELETE_WINDOW", tk.dismiss) # intercept close button
+        dlg.transient(container)   # dialog window is related to main
+        dlg.wait_visibility() # can't grab until window appears, so we wait
+        dlg.grab_set()        # ensure all input goes to our window
+        dlg.wait_window()     # block until window is destroyed
+```

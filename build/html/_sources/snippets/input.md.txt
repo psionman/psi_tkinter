@@ -1,0 +1,170 @@
+# The Input Class
+
+A class to support command line Input
+
+```python
+from typing import List, Dict, Tuple
+from termcolor import cprint
+
+MODULE_COLOUR = 'blue'
+ERROR_COLOUR = 'red'
+INTEGER_SELECTION= 'integer_selection'
+
+class Input():
+    def __init__(self, prompt: str,
+                    processes: Dict[str, Tuple[object, List[object]]],
+                    validation:dict[str, object]={},
+                    allow_null:bool=True):
+        """
+            The prompt is the string to appear in the input statement. E.g.
+
+                prompt = f"'S' to synchronise {len(files_to_copy)} files, 'Q' to quit: "
+
+            The process object is the function to be called when the input is the key
+            the list contains the parameters to be passed to the function.
+
+            Example processes and validation:
+
+                processes = {
+                    'integer_selection': (function_one, [], (min_integer, max_integer))
+                    'S': (function_two, [files_to_copy]),
+                    'Q': (quit, []),
+                }
+
+                (If the process key = <INTEGER_SELECTION> then a valid input is created for
+                integers in the range (min_integer to max_integer) and the call
+                is to function_one with the integer as the input parameter.)
+
+                validation = {
+                    'integer': {
+                        'min': 1,
+                        'max': 4999,
+                    }
+                }
+
+                (Validation is performed for integers in the range (min, max))
+
+            Usage:
+
+                response = Input(prompt, processes).process_response()
+        """
+        self.prompt = prompt
+        self.processes = processes
+        self.validation = validation
+        self.valid = False
+        self.allow_null = allow_null
+        (self.valid_inputs, self.valid_list) = self._get_valid_input_list()
+        self.error_colour = ERROR_COLOUR
+        self .response = None
+        # Are valid inputs to be included in the error message?
+        self.include_valid_in_error = True
+        self._error_message = self._get_error_message('Invalid input.')
+
+    def process_response(self) -> object:
+        # Return the result of a valid input
+        while True:
+            response = self._get_input()
+            if not self.valid:
+                continue
+
+            self.response = response
+            if self.allow_null and not response:
+                return response
+            if response not in self.processes:
+                print(self.allow_null, response)
+                return response
+            if not self.processes[response]:
+                return True
+            if response not in self.processes:
+                return response
+            process = self.processes[response]
+
+            if not process[0]:
+                return response
+            result = process[0](*process[1])
+            if len(process) <= 2:
+                return result
+
+    def _get_input(self) -> str:
+        # Return a valid input string
+        valid_inputs = self._get_valid_inputs()
+
+        while True:
+            self.valid = False
+            response = input(self.prompt)
+            if not response and self.allow_null:
+                self.valid = True
+                return response
+            if response in valid_inputs:
+                self.valid = True
+                if response in self.valid_inputs:
+                    return response
+                if response.upper() in self.valid_inputs:
+                    return response.upper()
+                if response.lower() in self.valid_inputs:
+                    return response.lower()
+            elif self.validation:
+                return self.validate_input(response)
+            cprint(f"{self._error_message}", self.error_colour)
+
+    def validate_input(self, response):
+        # Return a valid input string having validated input.
+        if 'integer' in self.validation:
+            return self.validate_integer(response)
+        return False
+
+    def validate_integer(self, response):
+        # Validate an integer  response.
+        if not response.isnumeric():
+            return False
+        integer = int(response)
+        min_, max_ = self.validation['integer']['min'], self.validation['integer']['max']
+        if integer < min_ or integer > max_:
+            cprint(f"Integer outside valid range: {min_} to {max_}", ERROR_COLOUR)
+            return False
+        self.valid = True
+        return response
+
+    def _get_valid_input_list(self) -> List[str]:
+        # Return a list of valid inputs and valid_list (used in error message)
+        valid_inputs = []
+        valid_list = []
+        for key in self.processes:
+            processes = {}
+            if key == INTEGER_SELECTION:
+                (min_, max_) = self.processes[key][2]
+                integer_range = range(min_, max_+1)
+                for index in integer_range:
+                    valid_inputs.append(str(index))
+                    processes[str(index)] = (self.processes[key][0], [index])
+                self.processes = {**self.processes, **processes}
+                valid_list.append(f'an integer({min_}-{max_})')
+            else:
+                valid_inputs.append(key)
+                valid_list.append(key)
+        return (valid_inputs, valid_list)
+
+    def _get_valid_inputs(self):
+        # Return a list of valid uppercase and lowercase inputs
+        valid_inputs = []
+        uppercase_valid_inputs = [item.upper() for item in self.valid_inputs]
+        for item in uppercase_valid_inputs:
+            valid_inputs.append(item)
+            valid_inputs.append(item.lower())
+        return valid_inputs
+
+    def _get_error_message(self, error_text: str) -> str:
+        # Return the error message for the input
+        if self.include_valid_in_error:
+            valid_responses_list = self.valid_list
+            if self.allow_null:
+                valid_responses_list.insert(0, '<RTN>')
+            valid_responses = ', '.join(valid_responses_list)
+            if len(valid_responses_list) >= 1:
+                return f'{error_text} Use one of {valid_responses}'
+        return error_text
+
+    def __str__(self) -> str:
+        return f'Input: {self.prompt} {self.valid_inputs}, {self.processes}'
+
+```

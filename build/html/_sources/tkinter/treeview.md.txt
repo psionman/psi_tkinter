@@ -1,0 +1,79 @@
+# Treeview
+
+
+## Create
+
+```python
+    ...
+    WINE_COLUMNS = (
+        ('name', 'Name', 300),
+        ('supplier', 'Supplier', 70),
+        ('price', 'Price', 70),
+        ('code', 'Code', 100),
+        ('notes', 'Notes', 500),
+    )
+    ...
+    tree = ttk.Treeview(container, selectmode='browse', height=10)
+    tree.grid(row=0, column=0, sticky=tk.NSEW)
+    tree.bind('<<TreeviewSelect>>', self.item_clicked)
+
+    col_list = tuple([col[0] for col in WINE_COLUMNS])
+    tree['columns'] = col_list
+    for col in WINE_COLUMNS:
+        (col_key, col_text, col_width) = (col[0], col[1], col[2])
+        tree.heading(col_key, text=col_text,
+                        command=lambda c=col_key:
+                        sort_treeview(tree, c, False))
+        tree.column(col_key, width=col_width, anchor=tk.W)
+
+    # Right justify column
+    tree.heading("price", text='Price', anchor=tk.E)
+    tree.column("price", stretch=0, anchor=tk.E)
+    ...
+```
+
+## Select an item on item_clicked
+
+```python
+        tree.bind('<Button-3>', self._show_context_menu)
+```
+
+```python
+    def _show_context_menu(self, event) -> None:
+        selected_item = self.tree.identify_row(event.y)
+        self.tree.selection_set(selected_item)
+        self.context_menu.tk_popup(event.x_root, event.y_root)
+```
+
+## Get data from selected item
+
+```python
+        item: tuple = self.tree.item(self.selected_item, 'values')
+```
+
+## Clear Treeview
+
+```python
+self.tree.delete(*self.tree.get_children())
+```
+
+## Sort Treeview
+
+```python
+def sort_treeview(tree: ttk.Treeview, col: int, reverse: bool) -> None:
+    children = [
+            (tree.set(child, col), child) for child in tree.get_children('')
+        ]
+    try:
+        children.sort(key=lambda t: float(t[0]), reverse=reverse)
+    except ValueError:
+        children.sort(reverse=reverse)
+
+    for index, (val, child) in enumerate(children):
+        tree.move(child, '', index)
+
+    tree.heading(
+        col,
+        command=lambda: sort_treeview(tree, col, not reverse)
+    )
+```

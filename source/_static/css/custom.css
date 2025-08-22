@@ -1,0 +1,26 @@
+h1 {
+  font-size: 28px;
+  color: green;
+}
+h2 {
+  font-size: 22px;
+  color: green;
+}
+h3 {
+  font-size: 16px;
+  color: green;
+}
+
+h4 {
+  font-size: 15px;
+  color: green;
+}
+
+a {
+color: blue;
+text-decoration: underline;
+}
+
+highlight-bash {
+color: blue;
+}

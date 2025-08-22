@@ -1,0 +1,20 @@
+Python Snippets
+===============
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   directories_and_files
+   read_and_write
+   formats
+   dates
+   dicts
+   lists
+   regex
+   ssh
+   icecream
+   termcolor
+   input
+   wx_python
+   miscellaneous_snippets

@@ -1,0 +1,106 @@
+# Conda
+
+## installation
+
+See [this page](https://docs.conda.io/projects/miniconda/en/latest/index.html)
+
+```bash
+mkdir -p ~/miniconda3
+```
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+```
+
+```bash
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+```
+
+```bash
+rm -rf ~/miniconda3/miniconda.sh
+```
+
+Then
+
+```bash
+~/miniconda3/bin/conda init bash && ~/miniconda3/bin/conda init zsh
+```
+
+## Create an environment
+
+```bash
+conda create -n test
+```
+
+## Delete an environment
+
+```bash
+conda remove -n ENV_NAME --all
+```
+
+## Activate an environment
+
+```bash
+conda activate test
+```
+
+some environmental variables
+
+```bash
+echo $VIRTUAL_ENV
+echo $CONDA_PREFIX
+```
+
+## list environments
+
+```bash
+conda env list
+```
+
+## Install python
+
+```bash
+conda install python==3 --yes
+```
+
+## Install icecream
+
+```bash
+conda install -c conda-forge icecream
+```
+
+## Delete
+
+```bash
+conda remove icecream
+
+If package has not been install with conda:
+
+```bash
+CONDA_PIP_INTEROP_ENABLED=1 conda remove --name ben tensorflow
+```
+
+## List packages
+
+```bash
+conda list -n myenv
+```
+
+## Create requirements
+
+```bash
+conda list -e > requirements_conda.txt
+```
+
+```bash
+conda env export --from-history > environment.yml
+```
+
+## tensorflow
+
+tensorflow can cause a crash with hardware error. -
+
+```bash
+conda create -n tensorflow
+conda install tensorflow-gpu -n tensorflow
+```

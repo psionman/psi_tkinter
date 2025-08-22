@@ -1,0 +1,82 @@
+# WxPython
+
+## Install from a wheel
+
+```bash
+pip install /home/jeff/projects/wx-tmp/wxPython-4.2.1-cp312-cp312-linux_x86_64.whl
+```
+
+NB may have to change the pyhon version in the wheel file name (cp12). To check supported tags rin
+
+```bash
+pip debug --verbose
+```
+
+## Installation
+
+Using [these instructions](https://wxpython.org/blog/2017-08-17-builds-for-linux-with-pip/index.html) ...
+
+
+### Necessary libraries
+
+| Library|Manjaro name|
+| --- | --- |
+| python-dev | [Not required in Arch](https://unix.stackexchange.com/questions/499786/ways-to-install-python3-dev-or-python3-devel-on-arch-linux) |
+| gtk | gtk3 & gtk4 |
+| gstreamer | gstreamer |
+| gstreamer-plugins-base | gst-plugins-base |
+| glut | freeglut |
+| libwebkitgtk | webkitgtk-6.0 |
+| libjpeg | libjpeg-turbo |
+| libpng | libpng |
+| libtiff | libtiff |
+| libsdl | sdl2 & sdl12-compat |
+| libnotify | libnotify |
+| libsm | libsm |
+
+
+### The --enable-shared flag
+
+Build the virtual environment with
+
+```bash
+ env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.x.x
+```
+
+
+## Build on Snowdon
+
+On Manjaro (desktop) build failed.
+
+Built on laptop and produced a wheel file at */home/jeff/projects/wx-tmp/wxPython-4.2.1-cp311-cp311-linux_x86_64.whl*
+
+Installed wheel on desktop using
+
+```bash
+pip install /home/jeff/projects/wx-tmp/wxPython-4.2.1-cp311-cp311-linux_x86_64.whl
+```
+
+Install succeeded, but run time error when *wx* called:
+
+
+> ImportError: /usr/lib/libstdc++.so.6: version 'GLIBCXX_3.4.32' not found (required by /home/jeff/.pyenv/versions/wx/lib/python3.11/site-packages/wx/_core.cpython-311-x86_64-linux-gnu.so)
+
+
+Following [advice on Manjaro forum](https://forum.manjaro.org/t/missing-glibcxx-3-4-29/72542/3) performed:
+
+```bash
+sudo pamac upgrade -a
+```
+
+This failed with the error
+
+
+> CMake Error at /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
+  Could NOT find Java (missing: Java_JAVAC_EXECUTABLE Java_JAR_EXECUTABLE
+  Java_JAVADOC_EXECUTABLE Development) (found version "11.0.20")
+Call Stack (most recent call first):
+  /usr/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:600 (_FPHSA_FAILURE_MESSAGE)
+  /usr/share/cmake/Modules/FindJava.cmake:314 (find_package_handle_standard_args)
+  src/java/CMakeLists.txt:1 (find_package)
+
+But *wx* now works

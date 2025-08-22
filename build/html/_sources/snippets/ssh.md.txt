@@ -1,0 +1,178 @@
+# SSH and SFTP
+
+## SSH
+
+```bash
+ssh bidforga@bidforgame.com -p 88
+```
+
+If it returns an error like
+
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+SHA256:+/deqXB7uy0fhH9x7UuAA/zPyVtTFeEk4iZJfnld5kQ.
+Please contact your system administrator.
+Add correct host key in /home/jeff/.ssh/known_hosts to get rid of this message.
+Offending ED25519 key in /home/jeff/.ssh/known_hosts:2
+Host key for [bidforgame.com]:88 has changed and you have requested strict checking.
+Host key verification failed.
+Connection closed.
+```
+
+Look for line number in *.../.ssh/known_hosts* and delete it
+
+run the command again
+
+```bash
+ssh bidforga@bidforgame.com -p 88
+```
+
+answer *yes* and provide the cPanel password
+
+## SFTP
+
+```bash
+sftp -oPort=88 bidforga@bidforgame.com
+```
+
+## Generate Public/Private key pair
+
+```bash
+ ssh-keygen -t rsa
+```
+
+Save key in *~/.ssh*, e.g. *~/.ssh/bfg_id*
+
+In CPanel got to *SSH Access*, import and enable the *Public* key.
+
+## Python and paramiko
+
+### With Password
+
+```python
+import paramiko
+
+HOST_NAME = 'bidforgame.com'
+USER_NAME = 'bidforga'
+PASSWORD = '<password>'
+PORT = 88
+
+client = paramiko.SSHClient()
+client.load_system_host_keys()
+client.connect(hostname=HOST_NAME, port=PORT, username=USER_NAME, password=PASSWORD)
+
+command = "ls -l"
+stdin, stdout, stderr = client.exec_command(command)
+print(stdout.read())
+```
+
+### With Private key file
+
+(No need to specify a password.)
+
+```python
+import paramiko
+
+HOST_NAME = 'bidforgame.com'
+USER_NAME = 'bidforga'
+PORT = 88
+PRIVATE_KEY_FILE = '/home/jeff/.ssh/bfg_id'
+
+client = paramiko.SSHClient()
+client.load_system_host_keys()
+client.connect(hostname=HOST_NAME, port=PORT, username=USER_NAME, key_filename=PRIVATE_KEY_FILE)
+
+command = "ls -l"
+stdin, stdout, stderr = client.exec_command(command)
+print(stdout.read())
+```
+
+### To Download a file
+
+```python
+REMOTE_FILE_PATH = 'bfg/bfg_wag/common/application.py'
+LOCAL_FILE_PATH = '/home/jeff/Documents/application.py'
+
+sftp_client= client.open_sftp()
+sftp_client.get(REMOTE_FILE_PATH, LOCAL_FILE_PATH)
+sftp_client.close()
+```
+
+### To Upload a file
+
+```python
+REMOTE_FILE_PATH = 'bfg/bfg_wag/common/application.py'
+LOCAL_FILE_PATH = '/home/jeff/Documents/application.py'
+
+sftp_client= client.open_sftp()
+sftp_client.put(LOCAL_FILE_PATH, REMOTE_FILE_PATH)
+sftp_client.close()
+```
+
+### Get File Stats
+
+```python
+REMOTE_FILE_PATH = 'bfg/bfg_wag/common/application.py'
+
+sftp_client= client.open_sftp()
+file_stats = sftp_client.stat(REMOTE_FILE_PATH)
+sftp_client.close()
+print(file_stats)
+```
+
+### Get a list of files in a directory on remote server
+
+```python
+import paramiko
+
+HOME = Path.home()
+HOST_NAME = 'bidforgame.com'
+USER_NAME = 'bidforga'
+PORT = 88
+PRIVATE_KEY_FILE = '/home/jeff/.ssh/bfg_id'
+
+REMOTE_DIR = 'bfg/bfg_wag/common'
+
+client = paramiko.SSHClient()
+client.load_system_host_keys()
+client.connect(hostname=HOST_NAME, port=PORT, username=USER_NAME, key_filename=PRIVATE_KEY_FILE)
+
+sftp_client= client.open_sftp()
+item_list = sftp_client.listdir(REMOTE_DIR)
+for item in item_list:
+    print(item)
+sftp_client.close()
+```
+
+### Get a list of directories on remote server
+
+```python
+import paramiko
+from stat import S_ISDIR
+
+HOME = Path.home()
+HOST_NAME = 'bidforgame.com'
+USER_NAME = 'bidforga'
+PORT = 88
+PRIVATE_KEY_FILE = '/home/jeff/.ssh/bfg_id'
+
+REMOTE_DIR = 'bfg/bfg_wag'
+
+client = paramiko.SSHClient()
+client.load_system_host_keys()
+client.connect(hostname=HOST_NAME, port=PORT, username=USER_NAME, key_filename=PRIVATE_KEY_FILE)
+
+sftp_client = client.open_sftp()
+item_list = sftp_client.listdir_attr(REMOTE_DIR)
+for item in item_list:
+    mode = item.st_mode
+    if S_ISDIR(mode):
+        print(item)
+sftp_client.close()
+```

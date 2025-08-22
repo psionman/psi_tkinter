@@ -1,0 +1,48 @@
+# Utilites
+
+## Open VS code at a specific line
+```bash
+code -g ~/projects/bfg/comment_editor/comment_editor/source/comment_editor.py:12
+```
+
+## To remove existing pyc files and directories
+```bash
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+export PYTHONDONTWRITEBYTECODE=1
+source ~/.bashrc
+```
+
+## Location of python
+
+ ### Main Installation
+```bash
+python -m site
+```
+Sample output
+> sys.path = [<br>
+    '/home/jeff/projects/documentation/psionman_set',<br>
+    '/usr/lib/python39.zip',<br>
+    '/usr/lib/python3.9',<br>
+    '/usr/lib/python3.9/lib-dynload',<br>
+    '/home/jeff/.local/lib/python3.9/site-packages',<br>
+    '/usr/lib/python3.9/site-packages',<br>
+]
+
+### Location of site packages
+```bash
+python -c 'import site; print(site.getsitepackages())'
+```
+Sample output
+> ['/usr/lib/python3.9/site-packages']
+
+### Location of user packages
+```bash
+python -m site --user-site
+```
+Sample output
+> /home/jeff/.local/lib/python3.9/site-packages
+
+
+## Install a python verson on Manjaro with pyenv
+
+[See this web page](https://github.com/pyenv/pyenv/issues/1889#issuecomment-837697366)

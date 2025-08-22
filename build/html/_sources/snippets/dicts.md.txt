@@ -1,0 +1,107 @@
+# Dictionaries
+
+##  Basic sort
+
+```python
+my_dict = {'a':1, 'c':2, 'b': 3}
+print(sorted(my_dict))
+```
+
+result is
+
+```python
+['a', 'b', 'c']
+```
+
+## Create a list of sorted keys from a dict
+
+```python
+HAND_TYPE_NAMES = {
+    1: 'use_stages',
+    0: 'use_random',
+    2: 'use_import',
+}
+
+sorted_keys = sorted(HAND_TYPE_NAMES, key=lambda x: x)
+print(sorted_keys)
+for key in sorted_keys:
+    print(key, HAND_TYPE_NAMES[key])
+```
+
+## Sort a dict by  values
+
+
+### Simple
+
+```python
+HAND_TYPE_NAMES = {
+    1: 'use_stages',
+    0: 'use_random',
+    2: 'use_import',
+}
+
+sorted_dict = {key: value for key, value in sorted(HAND_TYPE_NAMES.items(),
+                key=lambda item: item[1], reverse=True)}
+print(sorted_dict)
+for key in sorted_dict:
+    print(key, HAND_TYPE_NAMES[key])
+```
+
+### More complex
+
+```python
+names = {
+    'first-name': first_name,
+    'last-name': last_name,
+}
+
+sorted_names = [name for name ins sorted(names, lambda x:x['last_name'])]
+```
+
+names = Names()
+```python
+names = Names()
+sorted_names = [name for name ins sorted(names, lambda x:x.last_name)]
+```
+
+## Sort a dict complex key
+
+Using:
+
+```python
+self._events: {
+    '86Rf07': Event: 08 February 2024 morning,
+    'Oyt2kwu': Event: 08 February 2024 evening,
+    'bqnIYiJ': Event: 08 February 2024 }
+```
+
+where:
+
+```python
+event.__repr__ == f'Event: {self.date.strftime(DATE_FORMAT)} {self.name}'
+```
+
+```python
+def _sort_events(self) -> dict[Event]:
+    """Return a dict of events sorted by date:name."""
+    def _sort_key(event):
+        return f'{event.date}:{event.name}'
+
+    sorted_keys = sorted(
+        self.events.items(),
+        key=lambda item: _sort_key(item[1])
+    )
+    return {key[0]: self.events[key[0]] for key in sorted_keys}
+```
+
+## Remove an item from a dict
+
+```python
+HAND_TYPE_NAMES = {
+    1: 'use_stages',
+    0: 'use_random',
+    2: 'use_import',
+}
+HAND_TYPE_NAMES.pop(1)
+print(HAND_TYPE_NAMES)
+```

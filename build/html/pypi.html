@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PyPi &#8212; Documentation  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=4468db6d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyenv" href="penv.html" />
+    <link rel="prev" title="Excel with Python" href="python_excel.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Documentation</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="snippets/index.html">Python Snippets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_excel.html">Excel with Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PyPi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="penv.html">pyenv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tkinter/index.html">TKinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poetry/index.html">Poetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda/index.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config with ConfigParser and JSON</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zipapp.html">Zipapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansi_colours.html">Ansi colour codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocr.html">OCR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wxpython.html">WxPython</a></li>
+<li class="toctree-l1"><a class="reference internal" href="py2exe.html">Using py2exe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_scaffold.html">Python Projects</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">PyPi</a><ul>
+<li><a class="reference internal" href="#processes">Processes</a><ul>
+<li><a class="reference internal" href="#to-update">To update</a></li>
+<li><a class="reference internal" href="#necessary-packages">Necessary Packages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reinstall-pip-in-a-virtualenv">Reinstall pip in a virtualenv</a></li>
+<li><a class="reference internal" href="#force-pip-to-install-latest-version">Force pip to install latest version</a></li>
+<li><a class="reference internal" href="#current-version-of-package">Current version of package</a></li>
+<li><a class="reference internal" href="#all-versions-of-a-package">All versions of a package</a></li>
+<li><a class="reference internal" href="#to-install-a-particular-version-of-a-package">To install a particular version of a package</a></li>
+<li><a class="reference internal" href="#to-create-a-requirements-txt">To create a requirements.txt</a></li>
+<li><a class="reference internal" href="#to-install-from-requirements-txt">To install from requirements.txt</a></li>
+<li><a class="reference internal" href="#to-include-data-files">To include data files</a></li>
+<li><a class="reference internal" href="#setting-up-a-package-for-pypi">Setting up a package for PyPi</a></li>
+<li><a class="reference internal" href="#necessary-files">Necessary Files</a><ul>
+<li><a class="reference internal" href="#readme-md"><em>README.md</em></a></li>
+<li><a class="reference internal" href="#history-md"><em>HISTORY.md</em></a></li>
+<li><a class="reference internal" href="#license-txt"><em>license.txt</em></a></li>
+<li><a class="reference internal" href="#setup-py"><em>setup.py</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="python_excel.html" title="Previous Chapter: Excel with Python"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Excel with Python</span>
+    </a>
+  </li>
+  <li>
+    <a href="penv.html" title="Next Chapter: pyenv"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">pyenv &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/pypi.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">PyPi</a><ul>
+<li><a class="reference internal" href="#processes">Processes</a><ul>
+<li><a class="reference internal" href="#to-update">To update</a></li>
+<li><a class="reference internal" href="#necessary-packages">Necessary Packages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reinstall-pip-in-a-virtualenv">Reinstall pip in a virtualenv</a></li>
+<li><a class="reference internal" href="#force-pip-to-install-latest-version">Force pip to install latest version</a></li>
+<li><a class="reference internal" href="#current-version-of-package">Current version of package</a></li>
+<li><a class="reference internal" href="#all-versions-of-a-package">All versions of a package</a></li>
+<li><a class="reference internal" href="#to-install-a-particular-version-of-a-package">To install a particular version of a package</a></li>
+<li><a class="reference internal" href="#to-create-a-requirements-txt">To create a requirements.txt</a></li>
+<li><a class="reference internal" href="#to-install-from-requirements-txt">To install from requirements.txt</a></li>
+<li><a class="reference internal" href="#to-include-data-files">To include data files</a></li>
+<li><a class="reference internal" href="#setting-up-a-package-for-pypi">Setting up a package for PyPi</a></li>
+<li><a class="reference internal" href="#necessary-files">Necessary Files</a><ul>
+<li><a class="reference internal" href="#readme-md"><em>README.md</em></a></li>
+<li><a class="reference internal" href="#history-md"><em>HISTORY.md</em></a></li>
+<li><a class="reference internal" href="#license-txt"><em>license.txt</em></a></li>
+<li><a class="reference internal" href="#setup-py"><em>setup.py</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="python_excel.html" title="Previous Chapter: Excel with Python"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Excel with Python</span>
+    </a>
+  </li>
+  <li>
+    <a href="penv.html" title="Next Chapter: pyenv"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">pyenv &raquo;</span>
+    </a>
+  </li>
+<div id="sourcelink">
+  <a href="_sources/pypi.md.txt"
+     rel="nofollow">Source</a>
+</div>
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <section id="pypi">
+<h1>PyPi<a class="headerlink" href="#pypi" title="Link to this heading">¶</a></h1>
+<section id="processes">
+<h2>Processes<a class="headerlink" href="#processes" title="Link to this heading">¶</a></h2>
+<ol>
+<li><p>Create <em>wheel</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
+</pre></div>
+</div>
+</li>
+<li><p>Add <em>dist</em>, <em>build</em> and <em>&lt;appname&gt;.egg-info</em> to <em>.gitignore</em></p></li>
+<li><p>Upload using (use <em><strong>token</strong></em> as username and the upload token from Bitwarden)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+</pre></div>
+</div>
+</li>
+<li><p>Combined</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="to-update">
+<h3>To update<a class="headerlink" href="#to-update" title="Link to this heading">¶</a></h3>
+<p>Remove the <em>whl</em> and <em>tar.gz</em> files related to any previous version.</p>
+</section>
+<section id="necessary-packages">
+<h3>Necessary Packages<a class="headerlink" href="#necessary-packages" title="Link to this heading">¶</a></h3>
+<p>These packages need to be installed</p>
+<ol>
+<li><p><em>setuptools</em> and <em>wheel</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>setuptools<span class="w"> </span>wheel
+</pre></div>
+</div>
+</li>
+<li><p><em>twine</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>twine
+pip<span class="w"> </span>install<span class="w"> </span>twine<span class="w"> </span>--ignore-installed
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="reinstall-pip-in-a-virtualenv">
+<h2>Reinstall pip in a virtualenv<a class="headerlink" href="#reinstall-pip-in-a-virtualenv" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--upgrade
+</pre></div>
+</div>
+</section>
+<section id="force-pip-to-install-latest-version">
+<h2>Force pip to install latest version<a class="headerlink" href="#force-pip-to-install-latest-version" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--force-reinstall<span class="w"> </span>&lt;package&gt;
+</pre></div>
+</div>
+</section>
+<section id="current-version-of-package">
+<h2>Current version of package<a class="headerlink" href="#current-version-of-package" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>django
+</pre></div>
+</div>
+</section>
+<section id="all-versions-of-a-package">
+<h2>All versions of a package<a class="headerlink" href="#all-versions-of-a-package" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>index<span class="w"> </span>versions<span class="w"> </span>&lt;package&gt;
+</pre></div>
+</div>
+</section>
+<section id="to-install-a-particular-version-of-a-package">
+<h2>To install a particular version of a package<a class="headerlink" href="#to-install-a-particular-version-of-a-package" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">django</span><span class="o">==</span><span class="m">3</span>.1.5
+</pre></div>
+</div>
+</section>
+<section id="to-create-a-requirements-txt">
+<h2>To create a requirements.txt<a class="headerlink" href="#to-create-a-requirements-txt" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="to-install-from-requirements-txt">
+<h2>To install from requirements.txt<a class="headerlink" href="#to-install-from-requirements-txt" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="to-include-data-files">
+<h2>To include data files<a class="headerlink" href="#to-include-data-files" title="Link to this heading">¶</a></h2>
+<p>In <em>setup.py</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">setup</span><span class="p">(</span>
+        <span class="n">package_data</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;bfgbidding&#39;</span><span class="p">:[</span><span class="s1">&#39;comment_data/*.json&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="n">include_package_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">setup_args</span><span class="p">,</span>
+        <span class="n">install_requires</span><span class="o">=</span><span class="n">install_requires</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case <em>comment_data</em> is at the same level as <em>src</em> in the project.</p>
+</section>
+<section id="setting-up-a-package-for-pypi">
+<h2>Setting up a package for PyPi<a class="headerlink" href="#setting-up-a-package-for-pypi" title="Link to this heading">¶</a></h2>
+<p>These web-pages have good descriptions of the stages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/&#64;thucnc/how-to-publish-your-own-python-package-to-pypi-4318868210f9">thucnc</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/python-in-plain-english/how-to-publish-a-project-into-pypi-f845f1cc4b36">python-in-plain-english (covers tests and tokens)</a></p></li>
+</ul>
+</section>
+<section id="necessary-files">
+<h2>Necessary Files<a class="headerlink" href="#necessary-files" title="Link to this heading">¶</a></h2>
+<section id="readme-md">
+<h3><em>README.md</em><a class="headerlink" href="#readme-md" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```text
+# Name of project
+    A collection of modules ....
+
+    ## Installation
+    ```bash
+    pip install project_name
+    ```
+```
+</pre></div>
+</div>
+</section>
+<section id="history-md">
+<h3><em>HISTORY.md</em><a class="headerlink" href="#history-md" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```text
+Version 0.0.0
+
+Created and uploaded 30 July 202
+```
+</pre></div>
+</div>
+</section>
+<section id="license-txt">
+<h3><em>license.txt</em><a class="headerlink" href="#license-txt" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```text
+Copyright 2020 jeff Watkins
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+</pre></div>
+</div>
+</section>
+<section id="setup-py">
+<h3><em>setup.py</em><a class="headerlink" href="#setup-py" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```python
+import re
+
+from setuptools import setup, find_packages
+
+with open(&#39;README.md&#39;) as readme_file:
+    README = readme_file.read()
+
+with open(&#39;HISTORY.md&#39;) as history_file:
+    HISTORY = history_file.read()
+
+VERSION_FILE=&quot;psionapp/_version.py&quot;
+with open(VERSION_FILE, &#39;r&#39;) as f_version:
+    version_string = f_version.read()
+VSRE = r&quot;^__version__ = [&#39;\&quot;]([^&#39;\&quot;]*)[&#39;\&quot;]&quot;
+mo = re.search(VSRE, version_string, re.M)
+if mo:
+    version_string = mo.group(1)
+else:
+    raise RuntimeError(f&#39;Unable to find version string in {VERSION_FILE}.&#39;)
+
+
+setup_args = dict(
+    name=&#39;psionapp&#39;,
+    version=version_string,
+    description=&#39;&quot;&quot;&quot;A basic application class which other applications can inherit.&quot;&quot;&quot;&#39;,
+    long_description_content_type=&quot;text/markdown&quot;,
+    long_description=README + &#39;\n\n&#39; + HISTORY,
+    license=&#39;MIT&#39;,
+    packages=find_packages(),
+    author=&#39;jeff watkins&#39;,
+    author_email=&#39;support@bidforgame.com&#39;,
+    keywords=[&#39;Application, User&#39;],
+    url=&#39;https://psionman@bitbucket.org/psionman/psionapp.git&#39;,
+    download_url=&#39;https://pypi.org/project/psionapp/&#39;
+)
+
+install_requires = [
+    &#39;username&#39;, &#39;nose&#39;
+]
+
+if __name__ == &#39;__main__&#39;:
+    setup(**setup_args, install_requires=install_requires)
+```
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2024, Jeff Watkins. Version: 0.0.7.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

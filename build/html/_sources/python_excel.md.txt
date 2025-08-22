@@ -1,0 +1,192 @@
+
+# Excel with Python
+
+This is a [good tutorial](https://realpython.com/openpyxl-excel-spreadsheets-python/). This is the [openpyxl documenation](https://openpyxl.readthedocs.io/en/default/index.html)
+
+## Workbooks
+
+### Import openpyxl
+
+```python
+from openpyxl import Workbook, load_workbook
+```
+
+### Load a workbook
+
+```python
+workbook = load_workbook(filename="sample.xlsx", data_only=True)
+```
+
+### Create new workbook
+
+```python
+workbook = Workbook()
+worksheet = workbook.create_sheet('abc')
+dummy_worksheet = target_workbook['Sheet']
+workbook.remove(dummy_worksheet)
+```
+(N.B. The worksheet *Sheet* in created by default.)
+
+### Save a workbook
+
+```python
+workbook.save(filename="sample.xlsx")
+```
+
+## Worksheets
+
+### List all worksheets in  workbook
+
+```python
+for sheet in workbook.worksheets:
+    print(sheet)
+```
+
+### To access a named worksheet
+
+```python
+worksheet = workbook['sheet name']
+```
+
+### Add worksheet to Workbook
+
+```python
+worksheet = wb.create_sheet(table_name)
+worksheet.title = table_name
+```
+
+### Remove a worksheet
+
+```python
+worksheet = workbook['abc']
+workbook.remove(worksheet)
+```
+
+### Number of rows in a worksheet:
+
+```python
+number_of_rows = len(tuple(worksheet.rows))
+```
+
+### Read all rows in a sheet into a list of tuples
+
+```python
+def rows_from_table(self, table_name, ignore_first_row=True):
+    """Return all of the rows from a table."""
+    worksheet = self.wb[table_name]
+    rows = []
+    for row in worksheet.iter_rows(values_only=True):
+        rows.append(row)
+    if ignore_first_row:
+        rows.pop(0)
+    return rows
+```
+
+## Cells
+
+### To access a cell's value:
+
+```python
+value = worksheet.cell(row=10, column=6).value
+```
+
+### To update a cell's format
+
+```python
+if table_definition.column_definitions[column_number].data_type == 'DATE':
+    worksheet.cell(column=column_number+1, row=row_number).number_format = 'dd-mm-yyyy'
+```
+### Install openpyxl
+
+```bash
+ pip install openpyxl
+ ```
+
+ ## Snippets
+
+ ### Add a total row
+
+ ```python
+MAX_CELL = 8
+COLUMNS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+TOTAL_TEXT = 'Totals'
+
+    @staticmethod
+    def _do_totals(worksheet, total_row):
+        """Add total line to worksheet."""
+        worksheet.cell(row=total_row, column=1).value = TOTAL_TEXT
+        for column in range(3, MAX_CELL):
+            column_name = COLUMNS[column-1]
+            formula = f'=SUM({column_name}2:{column_name}{total_row-1})'
+            worksheet.cell(row=total_row, column=column).value = formula
+ ```
+
+### Validate worksheet
+
+ ```python
+from openpyxl import Workbook, load_workbook
+from openpyxl.utils.exceptions import InvalidFileException
+
+MESSAGES = {
+}
+
+    def _validate_worksheet(self):
+        """Return True if the file exists and is an excel file."""
+        path = self.panel.file_picker.GetPath()
+        if not os.path.isfile(path):
+            self._show_error_dialog(MESSAGES['file_does_not_exist'])
+            return None
+        try:
+            workbook_path = Path(path)
+            workbook = load_workbook(filename=path)
+            del workbook_path
+        except InvalidFileException:
+            self._show_error_dialog(MESSAGES['not_excel_file'])
+            return None
+        except zipfile.BadZipFile:
+            self._show_error_dialog(MESSAGES['not_excel_file'])
+            return None
+        try:
+            analysis_sheet = workbook['Analysis']
+            del analysis_sheet
+        except KeyError:
+            self._show_error_dialog(MESSAGES['analysis_worksheet_missing'])
+            return None
+        return workbook
+
+    def _show_error_dialog(self, message):
+        """Display the  error dialog."""
+        dlg = wx.MessageDialog(self, style=wx.OK|wx.ICON_ERROR, message=message)
+        dlg.ShowModal()
+
+ ```
+
+ ## Workbooky
+
+
+```python
+from workbooky import Workbook
+
+workbook = Workbook(path)
+```
+
+## Methods
+
+```python
+"""Return the worksheet if it exists, otherwise quit."""
+get_worksheet(sheet_name)
+```
+
+```python
+list_worksheets():
+"Print worksheet names."
+```
+
+```python
+"""Return all of the rows from a worksheet."""
+rows_from_worksheet(sheet_name, ignore_first_row=True)
+```
+
+```python
+save()
+```
