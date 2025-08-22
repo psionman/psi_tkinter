@@ -30,7 +30,7 @@
 
 [HtmlFrame](#htmlframe)
 
-[Scrolling canvas](#scrolling_canvas)
+[Scrolling canvas](#scrolling-canvas)
 
 ## Colours
 
