@@ -335,19 +335,27 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;xxxFrame for &lt;application&gt;.&quot;&quot;&quot;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ttk</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">PAD</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.buttons</span><span class="w"> </span><span class="kn">import</span> <span class="n">ButtonFrame</span><span class="p">,</span> <span class="n">Button</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">window_resize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.buttons</span><span class="w"> </span><span class="kn">import</span> <span class="n">ButtonFrame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">psiutils.utilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">window_resize</span><span class="p">,</span> <span class="n">geometry</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">APP_TITLE</span><span class="p">,</span> <span class="n">DEFAULT_GEOMETRY</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">config</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_config</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">text</span>
+<span class="kn">from</span><span class="w"> </span><span class="o">&lt;</span><span class="n">application</span> <span class="n">name</span><span class="o">&gt;.</span><span class="n">constants</span> <span class="kn">import</span><span class="w"> </span><span class="nn">APP_TITLE</span>
+<span class="kn">from</span><span class="w"> </span><span class="o">&lt;</span><span class="n">application</span> <span class="n">name</span><span class="o">&gt;.</span><span class="n">config</span> <span class="kn">import</span><span class="w"> </span><span class="nn">read_config</span>
 
 <span class="n">FRAME_TITLE</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">APP_TITLE</span><span class="si">}</span><span class="s1"> - &lt;title&gt;&#39;</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">xxxFrame</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize a xxxx form.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent: The parent window.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Toplevel</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
@@ -355,24 +363,16 @@
 
         <span class="c1"># tk variables</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_show</span><span class="p">()</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_show</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">geometry</span><span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">])</span>
-        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="n">DEFAULT_GEOMETRY</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="n">geometry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">))</span>
         <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">FRAME_TITLE</span><span class="p">)</span>
         <span class="n">root</span><span class="o">.</span><span class="n">transient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
-
-        <span class="c1"># Make modal</span>
-        <span class="n">root</span><span class="o">.</span><span class="n">grab_set</span><span class="p">()</span>
-
+        <span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Control-x&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dismiss</span><span class="p">)</span>
         <span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Configure&gt;&#39;</span><span class="p">,</span>
                   <span class="k">lambda</span> <span class="n">event</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="kc">None</span><span class="p">:</span> <span class="n">window_resize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">))</span>
-
-        <span class="n">root</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Control-x&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dismiss</span><span class="p">)</span>
 
         <span class="n">root</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">root</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -380,7 +380,7 @@
         <span class="n">main_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_main_frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
         <span class="n">main_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NSEW</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">PAD</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">PAD</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_button_frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">EW</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="n">PAD</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">PAD</span><span class="p">)</span>
 
         <span class="n">sizegrip</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Sizegrip</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -388,7 +388,6 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_main_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">:</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">:</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
-        <span class="c1"># frame.rowconfigure(0, weight=1)</span>
         <span class="n">frame</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">frame</span>
@@ -396,26 +395,16 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_button_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">:</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">:</span>
         <span class="n">frame</span> <span class="o">=</span> <span class="n">ButtonFrame</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
         <span class="n">frame</span><span class="o">.</span><span class="n">buttons</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">Button</span><span class="p">(</span>
-                <span class="n">frame</span><span class="p">,</span>
-                <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">OK</span><span class="p">,</span>
-                <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="p">,</span>
-                <span class="n">underline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                <span class="n">dimmable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-            <span class="n">Button</span><span class="p">(</span>
-                <span class="n">frame</span><span class="p">,</span>
-                <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="o">.</span><span class="n">EXIT</span><span class="p">,</span>
-                <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dismiss</span><span class="p">,</span>
-                <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">E</span><span class="p">,</span>
-                <span class="n">underline</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">frame</span><span class="o">.</span><span class="n">icon_button</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_process</span><span class="p">),</span>
+            <span class="n">frame</span><span class="o">.</span><span class="n">icon_button</span><span class="p">(</span><span class="s1">&#39;exit&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dismiss</span><span class="p">),</span>
         <span class="p">]</span>
         <span class="n">frame</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">frame</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">dismiss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_dismiss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -745,7 +734,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2025, Jeff Watkins. Version: 0.0.146.<br/>
+        &copy; Copyright 2025, Jeff Watkins. Version: 0.0.147.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.0.<br/>
     </p>
   </div>

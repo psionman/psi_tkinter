@@ -152,19 +152,27 @@ class MainFrame():
 """xxxFrame for <application>."""
 import tkinter as tk
 from tkinter import ttk
-from pathlib import Path
 
 from psiutils.constants import PAD
-from psiutils.buttons import ButtonFrame, Button
-from psiutils.utilities import window_resize
+from psiutils.buttons import ButtonFrame
+from psiutils.utilities import window_resize, geometry
 
-from constants import APP_TITLE, DEFAULT_GEOMETRY
-from config import read_config
-import text
+from <application name>.constants import APP_TITLE
+from <application name>.config import read_config
 
 FRAME_TITLE = f'{APP_TITLE} - <title>'
 
+
 class xxxFrame():
+    """
+    Initialize a xxxx form.
+
+    Args:
+        parent: The parent window.
+
+    Returns:
+        None
+    """
     def __init__(self, parent: tk.Frame) -> None:
         self.root = tk.Toplevel()
         self.parent = parent
@@ -172,24 +180,16 @@ class xxxFrame():
 
         # tk variables
 
-        self.show()
+        self._show()
 
-    def show(self) -> None:
+    def _show(self) -> None:
         root = self.root
-        try:
-            root.geometry(self.config.geometry[Path(__file__).stem])
-        except KeyError:
-            root.geometry(DEFAULT_GEOMETRY)
+        root.geometry(geometry(self.config, __file__))
         root.title(FRAME_TITLE)
         root.transient(self.parent.root)
-
-        # Make modal
-        root.grab_set()
-
+        root.bind('<Control-x>', self._dismiss)
         root.bind('<Configure>',
                   lambda event, arg=None: window_resize(self, __file__))
-
-        root.bind('<Control-x>', self.dismiss)
 
         root.rowconfigure(0, weight=1)
         root.columnconfigure(0, weight=1)
@@ -197,7 +197,7 @@ class xxxFrame():
         main_frame = self._main_frame(root)
         main_frame.grid(row=0, column=0, sticky=tk.NSEW, padx=PAD, pady=PAD)
         self.button_frame = self._button_frame(root)
-        self.button_frame.grid(row=8, column=0, columnspan=9,
+        self.button_frame.grid(row=2, column=0, columnspan=2,
                                sticky=tk.EW, padx=PAD, pady=PAD)
 
         sizegrip = ttk.Sizegrip(root)
@@ -205,7 +205,6 @@ class xxxFrame():
 
     def _main_frame(self, master: tk.Frame) -> ttk.Frame:
         frame = ttk.Frame(master)
-        # frame.rowconfigure(0, weight=1)
         frame.columnconfigure(1, weight=1)
 
         return frame
@@ -213,26 +212,16 @@ class xxxFrame():
     def _button_frame(self, master: tk.Frame) -> tk.Frame:
         frame = ButtonFrame(master, tk.HORIZONTAL)
         frame.buttons = [
-            Button(
-                frame,
-                text=text.OK,
-                command=self._process,
-                underline=0,
-                dimmable=True),
-            Button(
-                frame,
-                text=text.EXIT,
-                command=self.dismiss,
-                sticky=tk.E,
-                underline=1),
+            frame.icon_button('start', True, self._start_process),
+            frame.icon_button('exit', False, self._dismiss),
         ]
         frame.enable(False)
         return frame
 
-    def _process(self, *args) -> None:
+    def _start_process(self, *args) -> None:
         ...
 
-    def dismiss(self, *args) -> None:
+    def _dismiss(self, *args) -> None:
         self.root.destroy()
 
 ```
