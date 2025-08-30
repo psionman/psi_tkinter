@@ -218,6 +218,7 @@
                          <span class="n">sort_treeview</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
             <span class="n">tree</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">col_key</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">col_width</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
         <span class="c1"># tree.column(&lt;&#39;right-align-column-name&#39;&gt;, stretch=0, anchor=tk.E)</span>
+        <span class="c1">#tree.configure(yscrollcommand=v_scroll.set)</span>
         <span class="k">return</span> <span class="n">tree</span>
 </pre></div>
 </div>
@@ -350,6 +351,19 @@
         <span class="n">v_scroll</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">NS</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+        <span class="c1"># root.bind(&quot;&lt;Button-4&gt;&quot;, self._on_mouse_wheel)</span>
+        <span class="c1"># root.bind(&quot;&lt;Button-5&gt;&quot;, self._on_mouse_wheel)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_mouse_wheel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>   <span class="c1"># Linux scroll up</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">yview_scroll</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>  <span class="c1"># Linux scroll down</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">yview_scroll</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>                <span class="c1"># Windows / macOS</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">yview_scroll</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">delta</span> <span class="o">//</span> <span class="mi">120</span><span class="p">),</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -365,7 +379,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2025, Jeff Watkins. Version: 0.0.147.<br/>
+        &copy; Copyright 2025, Jeff Watkins. Version: 0.0.148.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.2.0.<br/>
     </p>
   </div>

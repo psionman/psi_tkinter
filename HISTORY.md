@@ -645,3 +645,8 @@ scollable canvas 3
 update modal screen
 
 --------------------------------------------------
+
+30 August 2025 - version 0.0.148
+bind scroll bar to mouse
+
+--------------------------------------------------

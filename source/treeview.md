@@ -40,6 +40,7 @@ TREE_COLUMNS = (
                          sort_treeview(tree, c, False))
             tree.column(col_key, width=col_width, anchor=tk.W)
         # tree.column(<'right-align-column-name'>, stretch=0, anchor=tk.E)
+        #tree.configure(yscrollcommand=v_scroll.set)
         return tree
 ```
 
@@ -176,4 +177,18 @@ from psiutils.widgets import vertical_scroll_bar
 
         v_scroll = vertical_scroll_bar(frame, self.tree)
         v_scroll.grid(row=1, column=1, sticky=tk.NS)
+```
+
+```python
+
+        # root.bind("<Button-4>", self._on_mouse_wheel)
+        # root.bind("<Button-5>", self._on_mouse_wheel)
+
+    def _on_mouse_wheel(self, event):
+        if event.num == 4:   # Linux scroll up
+            self.tree.yview_scroll(-1, "units")
+        elif event.num == 5:  # Linux scroll down
+            self.tree.yview_scroll(1, "units")
+        else:                # Windows / macOS
+            self.tree.yview_scroll(-1 * (event.delta // 120), "units")
 ```
